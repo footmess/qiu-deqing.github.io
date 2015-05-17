@@ -35,7 +35,7 @@ title: 原生拖拽,拖放事件(drag and drop)
 
 拖拽事件周期中会初始化一个`DataTransfer`对象,用于保存拖拽数据和交互信息.以下是它的属性和方法.
 
-- `dropEffect`: 拖拽交互类型,通常决定浏览器如何显示鼠标光标并控制拖放操作.常见的取值有`copy`,`move`,'link'和`none`
+- `dropEffect`: 拖拽交互类型,通常决定浏览器如何显示鼠标光标并控制拖放操作.常见的取值有`copy`,`move`,`link`和`none`
 - `effectAllowed`: 指定允许的交互类型,可以取值:`copy`,`move`,`link`,`copyLink`,`copyMove`,`limkMove`, `all`, `none`默认为`uninitialized`(允许所有操作)
 - `files`: 包含`File`对象的`FileList`对象.从操作系统向浏览器拖放文件时有用.
 - `types`: 保存`DataTransfer`对象中设置的所有数据类型.

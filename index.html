@@ -5,11 +5,18 @@ layout: default
 
 <div class="content">
   <div class="main">
-    main
-  </div>
-  <div class="sidebar">
-    sidebar
   </div>
 </div>
 
 <script src="//cdn.bootcss.com/d3/3.3.13/d3.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      d3.json("/assets/data/qiudeqing.json", function (data) {
+        var resume = dome.resume(".main", data, {
+          width: 600,
+          height: 600
+        });
+        resume.forcelayout();
+      });
+  }, false);
+</script>
