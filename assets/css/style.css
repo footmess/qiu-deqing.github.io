@@ -140,6 +140,16 @@ body {
           border-radius: 5px;
 }
 
+@media (max-width: 842px) {
+  .resume-chart {
+    float: none;
+  }
+  .resume-info {
+    float: none;
+    width: auto;
+  }
+}
+
 /**
 * force layout
 **/
