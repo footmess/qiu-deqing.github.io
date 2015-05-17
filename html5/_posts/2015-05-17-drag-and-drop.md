@@ -241,7 +241,6 @@ title: 原生拖拽,拖放事件(drag and drop)
       </script>
     </div> <!-- demo2 -->
 
-### 页面普通文本拖拽
 
 
 ## 参考资料
