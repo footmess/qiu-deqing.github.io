@@ -2,10 +2,13 @@
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="blog">
 <head>
   <meta charset="UTF-8">
   <title>{{ page.title }}</title>
+  <!-- 新 Bootstrap 核心 CSS 文件 -->
+  <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 
@@ -16,5 +19,11 @@
 
   {% include footer.html %}
 
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="//cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="//cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </body>
 </html>

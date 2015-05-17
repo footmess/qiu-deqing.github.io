@@ -1,0 +1,14 @@
+#blog body,
+#blog button, /* 1 */
+#blog input, /* 1 */
+#blog select, /* 1 */
+#blog textarea  /* 1 */
+{
+    font-family: 'helvetica neue',tahoma,'hiragino sans gb',stheiti,'wenquanyi micro hei',\5FAE\8F6F\96C5\9ED1,\5B8B\4F53,sans-serif;
+    font-size: 16px;
+}
+
+body {
+  width: 960px;
+  margin: 0 auto;
+}
