@@ -31,7 +31,12 @@ body {
   background-color: #ddd;
 }
 
-
+/**
+ * category导航
+ **/
+.category-list li {
+  margin-top: 10px;
+}
 
 /**
 * 页面滑动到顶部。到底部控件
