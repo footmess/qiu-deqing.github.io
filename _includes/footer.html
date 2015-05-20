@@ -9,5 +9,16 @@
 
 <script src="/assets/js/dome.js"></script>
 <script>
-  dome.pagescroll(document.body);
+  (function (w) {
+    var doc = w.document;
+
+    dome.pagescroll(document.body);
+
+    var list = doc.querySelectorAll('.page-nav a');
+    [].forEach.call(list, function (d) {
+      if (d.pathname === location.pathname) {
+        d.parentNode.classList.add('active');
+      }
+    });
+  }(window));
 </script>

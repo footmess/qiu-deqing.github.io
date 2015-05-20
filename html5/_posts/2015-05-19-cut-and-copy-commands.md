@@ -1,6 +1,6 @@
 ---
 
-title: [译]剪切和复制命令
+title: "[译]剪切和复制命令"
 
 ---
 
@@ -16,7 +16,7 @@ IE10增加了通过[Document.execCommand()][cnc-1]执行剪切,复制命令的�
 
 ## 简单例子
 
-本例将实现点击按钮复制邮件地址功能.[demo][cnd-3]
+本例将实现点击按钮复制邮件地址功能.[demo][cnc-3]
 
     <div id="demo1">
       <p>Email me at <a href="mailto:matt@example.co.uk" class="js-emaillink">matt@example.co.uk</a></p>
