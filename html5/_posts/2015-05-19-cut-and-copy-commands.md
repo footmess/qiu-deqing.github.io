@@ -58,6 +58,34 @@ IE10增加了通过[Document.execCommand()][cnc-1]执行剪切,复制命令的�
 如果需要确定一切都按照预期正常工作,可以检查`document.execCommand()`返回值,当命令不支持或者被禁止时将返回`false`.我们将`execCommand()`调用包装在try-catch中是因为剪切和复制在某种情况下会[抛出错误][cnc-6].
 
 
+**剪切**命令可以在文本输入框中的文本.[demo][cnc-8]
+
+
+    <div id="demo2">
+      <p><textarea class="js-cuttextarea">Hello I'm some text</textarea></p>
+      <p><button class="js-textareacutbtn" disable>Cut Textarea</button></p>
+
+      <script>
+      (function () {
+        var cutTextareaBtn = document.querySelector('.js-textareacutbtn')
+
+        cutTextareaBtn.addEventListener('click', function (event) {
+          var cutTextarea = document.querySelector('.js-cuttextarea');
+          cutTextarea.select();
+
+          try {
+            var successful = document.execCommand('cut');
+            var msg = successful ? 'successful' : 'unsuccessful';
+            console.log('Cut text is ' + msg);
+          } catch (e) {
+            console.log('cut error');
+          }
+        }, false);
+      }());
+      </script>
+    </div>
+
+
 ## 参考资料
 
 - [http://updates.html5rocks.com/2015/04/cut-and-copy-commands]()
@@ -69,3 +97,6 @@ IE10增加了通过[Document.execCommand()][cnc-1]执行剪切,复制命令的�
 [cnc-4]: https://developer.mozilla.org/en-US/docs/Web/API/Window/getSelection
 [cnc-5]: https://developer.mozilla.org/en-US/docs/Web/API/Selection/removeAllRanges
 [cnc-6]: https://dvcs.w3.org/hg/editing/raw-file/tip/editing.html#the-copy-command
+[cnc-7]: https://developer.mozilla.org/en-US/docs/Web/API/Document/queryCommandSupported
+[cnc-8]: http://qiudeqing.com/demo/html5/cut-and-copy-commands.html#demo2
+
