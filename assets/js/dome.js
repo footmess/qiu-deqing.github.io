@@ -702,157 +702,126 @@
     height: 500,
     prefix: ""
   }; // end defaults
-
-
 }(dome));
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /**
-* 在页面中生成导航，当屏幕不在最顶时，显示到顶部按钮，
-* 当屏幕不在最底是，显示到底部按钮。
-**/
-(function (dome){
+ * page-scroll.js
+ **/
+var pageScroll = (function (w) {
+  var doc = w.document;
+  var config = {
+    cls: {
+      root: 'page-scroll',
+      toTop: 'to-top',
+      toBottom: 'to-bottom'
+    },
+    selector: {
+      root: '.page-scroll',
+      toTop: '.to-top',
+      toBottom: '.to-bottom'
+    },
+    duration: 10,
+    tpl: '  <ul class="page-scroll">\n    <li class="to-top">\n      <a class="iconfont icon-to-top" href="#">&#xe601;</a>\n      <div class="info">\u8fd4\u56de\u9876\u90e8</div>\n    </li>\n    <li class="to-bottom">\n      <a class="iconfont icon-to-bottom" href="#">&#xe600;</a>\n      <div class="info">\u8fd4\u56de\u5e95\u90e8</div>\n    </li>\n  </ul>\n'
+  };
 
-  var strScroll = "page-scroll",
-    strItem = "page-scroll__item",
-    strLink = "page-scroll__link",
-    strIcon = "page-scroll__icon",
-    strText = "page-scroll__text";
-    strIconUp = "page-scroll__icon-up";
-    strIconDown = "page-scroll__icon-down";
+  var pageScroll = {
+    init: function (arg) {
+      var me = this;
 
-  dome.pagescroll = function (parent){
+      var container = doc.querySelector(arg.container);
+      container.innerHTML = config.tpl;
 
-    var scroll = {};
-    var icon,
-      text,
-      link;
-    scroll.parent = parent;
-    scroll.container = document.createElement("ul");
-    dome.addClass(scroll.container, strScroll);
+      me.root = doc.querySelector(config.selector.root);
+      me.documentHeight = me.getDocumentRect().height;
 
-    scroll.parent.appendChild(scroll.container);
+      me.root.addEventListener('click', function (e) {
+        e.preventDefault();
 
-    var totop = document.createElement("li");
-    dome.addClass(totop, strItem);
-    link = document.createElement("a");
-    link.href = "#";
-    dome.addClass(link, strLink);
-    link.addEventListener("click", scrollTop, false);
-    icon = document.createElement("span");
-    dome.addClass(icon, strIcon);
-    dome.addClass(icon, strIconUp);
-    text = document.createElement("span");
-    text.textContent = "顶部";
-    dome.addClass(text, strText);
-    link.appendChild(icon);
-    link.appendChild(text);
-    totop.appendChild(link);
-    scroll.container.appendChild(totop);
-    scroll.totop = totop;
+        var p = e.target.parentNode;
 
-    var tobottom = document.createElement("li");
-    dome.addClass(tobottom, strItem);
-    link = document.createElement("a");
-    link.href = "#";
-    dome.addClass(link, strLink);
-    link.addEventListener("click", scrollBottom, false);
-    icon = document.createElement("span");
-    dome.addClass(icon, strIcon);
-    dome.addClass(icon, strIconDown);
-    text = document.createElement("span");
-    text.textContent = "底部";
-    dome.addClass(text, strText);
-    link.appendChild(icon);
-    link.appendChild(text);
-    tobottom.appendChild(link);
-    scroll.container.appendChild(tobottom);
-    scroll.tobottom = tobottom;
+        var currentY = me.getScrollPos().y;
+        var viewportHeight = me.getViewportSize().height;
+        var targetY = 0;
 
-    function scrollTop(event) {
-      event.preventDefault();
-      var offset = dome.getScrollOffsets();
-      var pos = offset.y;
-      var step = 0.1 * pos;
-
-      function animate() {
-        pos -= step;
-        window.scroll(0, pos);
-        if (pos > 0) {
-          setTimeout(animate, 30);
+        if (p.classList.contains(config.cls.toBottom)) {
+          targetY = me.documentHeight - viewportHeight;
         }
-      } // end animate()
-      animate();
-    } // end scrollTop()
 
-    function scrollBottom(event) {
-      event.preventDefault();
-      var pos = dome.getScrollOffsets().y;
-      var viewportHeight = dome.getViewportSize().height;
-      var docHeight = dome.getDocumentRect().height;
-      var target = docHeight - viewportHeight;
-      var offset = target - pos;
-      var step = 0.1 * offset;
+        me.pageScroll(currentY, targetY);
+      }, false);
+    },
+    pageScroll: function (currentY, targetY) {
+      var distance = targetY - currentY;
+      var step = 0.1 * distance;
 
       function animate() {
-        pos += step;
-        window.scroll(0, pos);
-        if (pos < target) {
-          setTimeout(animate, 30);
-        } // end if
-      } // end animate()
+        currentY += step;
+        step = 0.1 * (targetY - currentY);
+
+        window.scrollTo(0, currentY);
+        console.log(currentY)
+
+        if (Math.abs(targetY - currentY) > 5) {
+          setTimeout(animate, config.duration);
+        }
+      }
+
       animate();
-    } // end scrollBottom()
+    },
+    getScrollPos: function (win) {
+      win = win || w;
+      if (win.pageXOffset != null) {
+        return {
+          x: win.pageXOffset,
+          y: win.pageYOffset
+        };
+      }
 
-    function toggleController() {
-      var scrollY = dome.getScrollOffsets().y;
-      var viewportHeight = dome.getViewportSize().height;
-      var docHeight = dome.getDocumentRect().height;
+      var d = win.document;
+      if (document.compatMode === 'CSS1Compat') {
+        return {
+          x: d.documentElement.scrollLeft,
+          y: d.documentElement.scrollTop
+        };
+      }
+      return {
+        x: d.body.scrollLeft,
+        y: d.body.scrollTop
+      };
+    },
+    getViewportSize: function (win) {
+      win = win || w;
+      if (win.innerWidth != null) {
+        return {
+          width: w.innerWidth,
+          height: w.innerHeight
+        };
+      }
+      var d = win.document;
+      if (document.compatMode === 'CSS1Compat') {
+        return {
+          width: d.documentElement.clientWidth,
+          height: d.documentElement.clientHeight
+        };
+      }
+      return {
+        width: d.body.clientWidth,
+        height: d.body.clientHeight
+      };
+    },
+    getDocumentRect: function () {
+      var body = doc.body;
+        html = doc.documentElement;
 
-      // if content is lower than viewport, hide control
-      if (docHeight <= viewportHeight) {
-        scroll.totop.style.display = "none";
-        scroll.tobottom.style.display = "none";
-        return;
-      } // end if
+      return {
+        height: Math.max(body.scrollHeight, body.offsetHeight,
+          html.clientHeight, html.scrollHeight, html.offsetHeight),
+        width: Math.max(body.scrollWidth, body.offsetWidth,
+          html.clientWidth, html.scrollWidth, html.offsetWidth)
+      };
+    }
+  };
 
-      // if page has scroll down, active totop control
-      if (scrollY > 0) {
-        scroll.totop.style.display = "block";
-      } // end if
-      else {
-        scroll.totop.style.display = "none";
-      } // end else
-
-      // if scroll not reach bottom, active to buttom control
-      if (scrollY + viewportHeight < docHeight) {
-        scroll.tobottom.style.display = "block";
-      } // end if
-      else {
-        scroll.tobottom.style.display = "none";
-      } // end else
-
-    } // end toggleController()
-
-    toggleController(); // init state
-    window.addEventListener("scroll", toggleController, false);
-
-  }; // end pagescroll()
-
-
-
-}(dome));
-
-
+  return pageScroll;
+}(window));

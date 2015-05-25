@@ -39,92 +39,6 @@ body {
   margin-top: 20px;
 }
 
-/**
-* 页面滑动到顶部。到底部控件
-**/
-.page-scroll {
-  position: fixed;
-  bottom: 71px;
-  right: 40px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  border: 1px solid #E0E0E0;
-}
-
-.page-scroll__item {
-  border-bottom: 1px solid #E0E0E0;
-}
-
-.page-scroll__item:last-child {
-  border-bottom: 0;
-}
-
-.page-scroll__link {
-  display: block;
-  width: 65px;
-  text-align: center;
-  color: #CECECE;
-}
-
-
-.page-scroll__link:visited,
-.page-scroll__link:focus,
-.page-scroll__link:hover,
-.page-scroll__link:active
-  {
-  text-decoration: none;
-  color: #CECECE;
-}
-
-.page-scroll__text {
-  display: none;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1;
-  padding: 17px 0;
-  font-size: 12px;
-}
-
-.page-scroll__icon {
-  display: block;
-  font-family: FontAwesome;
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1;
-  font-size: 46px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.page-scroll__icon:before {
-  display: block;
-}
-.page-scroll__icon-down:before {
-  content: ">";
-  -webkit-transform: rotate(90deg);
-     -moz-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-       -o-transform: rotate(90deg);
-          transform: rotate(90deg);
-}
-
-.page-scroll__icon-up:before {
-  content: ">";
-  -webkit-transform: rotate(270deg);
-     -moz-transform: rotate(270deg);
-      -ms-transform: rotate(270deg);
-       -o-transform: rotate(270deg);
-          transform: rotate(270deg);
-}
-
-.page-scroll__link:hover .page-scroll__icon {
-  display: none;
-}
-
-.page-scroll__link:hover .page-scroll__text {
-  display: block;
-}
 
 /**
  * resume.js 对应svg样式
@@ -186,6 +100,7 @@ body {
   line-height: 1.6;
   word-wrap: break-word;
   margin: 20px 0;
+  padding: 10px;
 }
 
 .markdown-body a {
@@ -820,3 +735,81 @@ body {
   position: relative;
   border-color: #4183c4;
 }
+
+/**
+ * page-scroll.css
+ **/
+@font-face {
+  font-family: 'iconfont';
+  src: url('//at.alicdn.com/t/font_1432364260_7657838.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/font_1432364260_7657838.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/font_1432364260_7657838.woff') format('woff'), /* chrome、firefox */
+  url('//at.alicdn.com/t/font_1432364260_7657838.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/font_1432364260_7657838.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont{
+    font-family: "iconfont";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    display: inline-block;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.page-scroll {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #ccc;
+  position: fixed;
+  top: 70%;
+  right: 30px;
+  text-align: center;
+}
+.page-scroll .to-top,
+.page-scroll .to-bottom {
+  height: 48px;
+  overflow: hidden;
+}
+.page-scroll .to-top {
+  border-bottom: 1px solid #ccc;
+}
+.page-scroll .iconfont {
+  text-decoration: none;
+  color: #ccc;
+  font-weight: bold;
+  display: block;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  font-size: 30px;
+}
+.page-scroll .info {
+  width: 40px;
+  height: 0;
+  color: #ccc;
+  background-color: #eee;
+  cursor: pointer;
+  padding: 5px 4px;
+}
+.page-scroll .to-top:hover .info,
+.page-scroll .to-bottom:hover .info  {
+  height: 38px;
+}
+.page-scroll .to-top:hover .iconfont,
+.page-scroll .to-bottom:hover .iconfont {
+  height: 0;
+}
+.page-scroll .iconfont,
+.page-scroll .info {
+  overflow: hidden;
+  -webkit-transition: height 0.1s linear;
+     -moz-transition: height 0.1s linear;
+          transition: height 0.1s linear;
+}
+
