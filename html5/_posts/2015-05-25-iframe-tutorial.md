@@ -5,9 +5,21 @@ title: iframe标签使用
 ---
 
 
-# iframe标签使用
+## iframe标签使用
 
-[HTML inline Frame Element(<iframe>)][1]表示一个嵌套上下文,用于在页面中嵌套其他页面.
+[HTML inline Frame Element(<iframe>)][1]表示一个嵌套上下文,用于在页面中嵌套其他页面.可以在文档流中任何地方放置iframe,如:[iframe例子][8]
+
+### iframe基本例子
+
+以下代码设置iframe的最基础属性:
+
+    <iframe src="http://qiudeqing.com/html5/2015/05/25/iframe-tutorial.html"></iframe>
+
+其中`src`属性指定iframe要展示文档的url. 尽管可以使用width, height, scrolling, frameborder属性来控制iframe的显示, 我们推荐使用css来控制样式.
+
+    iframe {
+      border: 1px solid
+    }
 
 ## 属性
 
@@ -33,7 +45,7 @@ iframe包含所有[全局属性][2],以下是它自有的(仅列出未废弃的�
 
 ## 参考资料
 
-- [http://www.dyn-web.com/tutorials/iframes/]()
+- [http://www.dyn-web.com/tutorials/iframes/][7]
 
 
 [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
@@ -42,7 +54,7 @@ iframe包含所有[全局属性][2],以下是它自有的(仅列出未废弃的�
 [4]: https://developer.mozilla.org/en-US/docs/Web/API/Window/parent
 [5]: https://developer.mozilla.org/en-US/docs/Same_origin_policy_for_JavaScript
 [6]: https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
-
+[7]: http://www.dyn-web.com/tutorials/iframes/
 
 
 
