@@ -10,7 +10,8 @@ title: HTML5
 
     <ol class="category-list">
 
-    <li><a href="http://quanxi613.github.io/">quanxi的博客</a></li>
+      <li><a href="http://quanxi613.github.io/">quanxi的博客</a></li>
+      <li><a href="http://lingyu.wang/">天镶的博客</a></li>
 
     </ol>
   </div>
