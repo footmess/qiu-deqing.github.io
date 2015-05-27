@@ -13,12 +13,36 @@ title: iframe标签使用
 
 iframe包含所有[全局属性][2],以下是它自有的(仅列出未废弃的和兼容性好的属性).
 
+- `height`: 设置frame的高度数,HTML5中单位为CSS像素,HTML4.01中可以是像素或者百分数. css中也可以设置元素高度.
+- `name`: A name for the embedded browsing context (or frame). This can be used as the value of the target attribute of an `<a>` or `<form>` element, or the formtarget attribute of an `<input>` or `<button>` element.
+- `src`: 需要嵌入的页面的URL.
+- `width`: 指定元素宽度,规则和高度一样
+
+## 脚本操作
+
+可以使用普通`document.querySelector()`获取页面中指定的iframe元素,也可以通过[window.frames][3]获取当前浏览器窗口下内嵌的所有frame的类数组表示.通过`window.frames[i]`可以获取iframe元素,`iframe.contentWindow`获取iframe对应的window对象.
+
+在frame内部,通过[window.parent][4]可以访问包含它的父窗口.
+
+脚本访问frame内容时会受到[same-origin policy][5]的限制.需要跨域通信时可以使用[window.postMessage][6].
 
 ## 常见操作
 
 - **去掉默认边框**: 默认情况下iframe有1px的边框, HTML4中通过`frameborder="0"`可去掉边框,但是这个属性已经废弃,推荐在css中使用`border: 0`去掉边框.
 
 
+## 参考资料
+
+- [http://www.dyn-web.com/tutorials/iframes/]()
+
 
 [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
 [2]: https://developer.mozilla.org/en-US/docs/HTML/Global_attributes
+[3]: https://developer.mozilla.org/en-US/docs/Web/API/Window/frames
+[4]: https://developer.mozilla.org/en-US/docs/Web/API/Window/parent
+[5]: https://developer.mozilla.org/en-US/docs/Same_origin_policy_for_JavaScript
+[6]: https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
+
+
+
+

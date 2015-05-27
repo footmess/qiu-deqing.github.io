@@ -26,6 +26,7 @@ body {
   text-decoration: none;
   color: #666;
   border-radius: 3px;
+  margin: 5px;
 }
 .page-nav a:hover,
 .page-nav .active a {
