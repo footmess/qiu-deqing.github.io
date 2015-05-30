@@ -54,6 +54,7 @@ iframe包含所有[全局属性][2],以下是它自有的(仅列出未废弃的�
 
 脚本访问frame内容时会受到[same-origin policy][5]的限制.需要跨域通信时可以使用[window.postMessage][6].
 
+
 ## 常见操作
 
 - **去掉默认边框**: 默认情况下iframe有1px的边框, HTML4中通过`frameborder="0"`可去掉边框,但是这个属性已经废弃,推荐在css中使用`border: 0`去掉边框.
