@@ -42,9 +42,81 @@ iframe包含所有[全局属性][2],以下是它自有的(仅列出未废弃的�
 - `src`: 需要嵌入的页面的URL.
 - `width`: 指定元素宽度,规则和高度一样
 
-## 使用JavaScript或者链接为iframe加载新文档
+## 为iframe加载新文档
 
-可以设置链接的`target`属性来实现点击链接后在对应iframe中加载链接所指向的文档.[在线demo][9].
+页面加载完成之后也可以根据需求动态加载iframe,[在线demo][9].
+
+- 使用链接`target`指定需要加载链接地址的iframe的name
+
+    <a href="page.html" target="ifm">linkx</a>
+    <iframe name="ifm"></iframe>
+
+- 使用JavaScript修改iframe的src属性,实现这个目的有三种方法
+
+    // 方法1
+    var e = document.getElementById('ifrm');
+    e.src = url;
+
+    // 方法2
+    window.frames['ifrm'].location = url;
+
+    // 方法3
+    window.frames['ifrm'].location = url;
+
+## 检测页面是否被其他页面通过iframe包含
+
+可以通过判断[window.top][10]是否等于[window.self][11]来检测页面是否被其他页面包含,然后修改顶级窗口为文档内容
+
+    if (top !== self) {
+      top.location = self.location;
+    }
+
+## 根据文档高度设置iframe高度
+
+默认情况下iframe不会根据嵌入文档高度改变高度,要完成高度自适应不出现滚动条,就需要动态改变iframe高度
+
+- 如果嵌入文档与父文档是同一个域,操作比较简单,直接在父文档中查询文档高度,然后设置iframe高度
+
+      <div id="d3">
+        <h2>同域文档高度自适应</h2>
+        <style>
+        #d3 iframe {
+          width: 80%;
+        }
+        </style>
+        <iframe src="http://qiudeqing.com"></iframe>
+        <script>
+        !function () {
+          var iframe = document.querySelector('#d3 iframe');
+          iframe.contentWindow.addEventListener('load', function () {
+            var height = iframe.contentWindow.document.documentElement.scrollHeight;
+            iframe.height = height;
+          }, false);
+        }();
+        </script>
+      </div>
+
+- 如果是跨域,那需要使用[window.postMessage][12]传递高度信息
+
+  子文档:
+
+      <script>
+      !function () {
+        var height = document.documentElement.scrollHeight;
+        top.postMessage({height: height}, '*')
+      }();
+      </script>
+
+  父文档:
+
+      <script>
+      !function () {
+        var iframe = document.querySelector('#d4 iframe');
+        window.addEventListener('message', function (e) {
+          iframe.height = e.data.height;
+        }, false);
+      }();
+      </script>
 
 ## 脚本操作
 
@@ -73,5 +145,7 @@ iframe包含所有[全局属性][2],以下是它自有的(仅列出未废弃的�
 [6]: https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
 [7]: http://www.dyn-web.com/tutorials/iframes/
 [8]: http://qiudeqing.com/demo/html5/iframe-tutorial.html#d1
-
-
+[9]: http://qiudeqing.com/demo/html5/iframe-tutorial.html#d2
+[10]: https://developer.mozilla.org/en-US/docs/Web/API/Window/top
+[11]: https://developer.mozilla.org/en-US/docs/Web/API/Window/self
+[12]: https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage

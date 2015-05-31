@@ -13,8 +13,8 @@ layout: default
   document.addEventListener('DOMContentLoaded', function () {
       d3.json("/assets/data/qiudeqing.json", function (data) {
         var resume = dome.resume(".main", data, {
-          width: 600,
-          height: 600
+          width: 645,
+          height: 500
         });
         resume.forcelayout();
       });
