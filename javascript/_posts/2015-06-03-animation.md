@@ -4,6 +4,8 @@ title: "[译]javascript动画"
 
 # javascript动画
 
+原文出处[http://javascript.info/tutorial/animation][1]
+
 javascript动画基本思想是按照一定间隔修改DOM元素的样式或者canvas内容.通常我们使用框架来处理动画,学习动画的实现能够提高技能并创造复杂的动画.
 
 以下是一个常用的模式:
@@ -244,22 +246,22 @@ javascript动画基本思想是按照一定间隔修改DOM元素的样式或者c
 
 下面的highlight函数用于颜色改变动画
 
-function highlight(elem) {
-  var from = [255, 0, 0],
-    to = [255, 255, 255];
+    function highlight(elem) {
+      var from = [255, 0, 0],
+        to = [255, 255, 255];
 
-  animate({
-    delay: 10,
-    duration: 1000,
-    delta: linear,
-    step: function (delta) {
-      elem.style.backgroundColor = 'rgb(' +
-        Math.max(Math.min(parseInt((delta * (to[0]-from[0])) + from[0], 10), 255), 0) + ',' +
-        Math.max(Math.min(parseInt((delta * (to[1]-from[1])) + from[1], 10), 255), 0) + ',' +
-        Math.max(Math.min(parseInt((delta * (to[2]-from[2])) + from[2], 10), 255), 0) + ')';
+      animate({
+        delay: 10,
+        duration: 1000,
+        delta: linear,
+        step: function (delta) {
+          elem.style.backgroundColor = 'rgb(' +
+            Math.max(Math.min(parseInt((delta * (to[0]-from[0])) + from[0], 10), 255), 0) + ',' +
+            Math.max(Math.min(parseInt((delta * (to[1]-from[1])) + from[1], 10), 255), 0) + ',' +
+            Math.max(Math.min(parseInt((delta * (to[2]-from[2])) + from[2], 10), 255), 0) + ')';
+        }
+      });
     }
-  });
-}
 
 ## 参考资料
 

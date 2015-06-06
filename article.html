@@ -1,0 +1,21 @@
+---
+layout: default
+title: 文章分类
+
+---
+
+<div class="content">
+
+  <div class="main">
+
+    <ol class="category-list">
+      {% for c in site.categories %}
+      <li><a href="/{{ c | first}}/index.html">{{ c | first }}</a></li>
+      {% endfor %}
+    </ol>
+  </div>
+
+  <div class="sidebar">
+
+  </div>
+</div>
