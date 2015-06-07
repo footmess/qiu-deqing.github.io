@@ -21,7 +21,9 @@ javascript动画基本思想是按照一定间隔修改DOM元素的样式或者c
 
 在这里我们使用`setInterval`而不是`setTimeout`是因为 we want a frame once per interval, not a fixed delay between frames.查看[理解计时器:setTimeout和setInterval][2]了解更多内容.
 
-下面是一个简单的例子,每10ms增加元素left值1px.直到100;[在线demo][3]
+下面是一个简单的例子,每10ms增加元素left值1px.直到100;
+
+<iframe width="100%" height="300" src="//jsfiddle.net/7qub6p9n/embedded/result,js,html,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
     <style>
     .example_path{
@@ -181,7 +183,8 @@ javascript动画基本思想是按照一定间隔修改DOM元素的样式或者c
       return p;
     });
 
-[最后的在线demo][6].
+<iframe width="100%" height="300" src="//jsfiddle.net/0c116ypo/embedded/result,js,css,html/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
 
 ## Maths, the function of progress delta
 
@@ -272,7 +275,6 @@ javascript动画基本思想是按照一定间隔修改DOM元素的样式或者c
 
 [1]: http://javascript.info/tutorial/animation
 [2]: http://javascript.info/tutorial/settimeout-setinterval
-[3]: http://qiudeqing.com/demo/javascript/animation-move.html#d1
 [4]: http://7xio0w.com1.z0.glb.clouddn.com/QQ20150603-1@2x.png
 [5]: http://7xio0w.com1.z0.glb.clouddn.com/QQ20150603-2@2x.png
 [6]: http://qiudeqing.com/demo/javascript/animation-move.html#d2
