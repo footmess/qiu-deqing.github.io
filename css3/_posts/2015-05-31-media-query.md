@@ -23,21 +23,15 @@ title: css3 media query
 
 以下是一个简单media query，用于检测media type为all时的一个media feature：
 
-```
-@media (min-width: 700px) {}
-```
+    @media (min-width: 700px) {}
 
 当我们需要添加限制条件是，可以使用and完成目的如下：
 
-```
-@media (min-width: 700px) and (orientation: landscape) {}
-```
+    @media (min-width: 700px) and (orientation: landscape) {}
 
 上面的media query只有在viewport大于700px并且width &bt; height时生效。此时如果需要限制媒体类型为彩色电脑显示器，可以使用and添加media type如下：
 
-```
-@media screen and (min-width: 700px) and (orientation: landscape) {}
-```
+    @media screen and (min-width: 700px) and (orientation: landscape) {}
 
 ### ,逗号运算符：用于结合多个media  query，任一media query为true时应用样式。
 
@@ -45,9 +39,7 @@ title: css3 media query
 
 如果需要在大于700px宽的所有设备或者宽度大于高度的彩色电脑屏幕上应用样式，可以使用如下规则：
 
-```
-@media (min-width: 700px), screen and (orientation: landscape) {}
-```
+    @media (min-width: 700px), screen and (orientation: landscape) {}
 
 ### not：用于对整个media query结果取反,必须位于一个media query的开头
 
@@ -55,46 +47,32 @@ title: css3 media query
 
 例1：如下面的**not将在最后求值**：
 
-```
-@media not all and (monochrome) {}
-```
+    @media not all and (monochrome) {}
 
 等价于下面的query：
 
-```
-@media not (all and (monochrome)) {}
-```
+    @media not (all and (monochrome)) {}
 
 例2：下面的多个media query求值
 
-```
-@media not screen and (color), print and (color) {}
-```
+    @media not screen and (color), print and (color) {}
 
 求值顺序如下：
 
-```
-@media (not (screen and (color))), print and (color) {}
-```
+    @media (not (screen and (color))), print and (color) {}
 
 ### only：用于向早期浏览器隐藏媒体查询，only必须位于media  query的开头
 
 
-```
-@media only screen and (min-width: 400px) and (max-width: 600px) {}
-```
+    @media only screen and (min-width: 400px) and (max-width: 600px) {}
 
 无法识别媒体查询的浏览器要求获得**逗号分割的媒体类型列表**，规范要求：它们应该在**第一个不是连字符的非数字、字母之前截断每个值**。所以上面的示例解释为：
 
-```
-@media only {}
-```
+    @media only {}
 
 因为没有only这样的媒体类型，所以样式表被忽略。如果不加only，下面的示例
 
-```
-@media screen and (min-width: 400px) and (max-width: 600px) {}
-```
+    @media screen and (min-width: 400px) and (max-width: 600px) {}
 
 被解析为`@media screen {}`这样一来**即使浏览器不知道media query的真正含义，样式也会应用于所有屏幕设备**。不幸的是，IE6-8未能正确实现该规范。没有将样式应用到所有屏幕的设备，它将整个样式表忽略掉。
 
@@ -139,81 +117,73 @@ title: css3 media query
 
 为确保在某一个条件下只有一个样式表生效，将查询条件严格划分，如下面：
 
-```
-@media (max-width: 400px) {
-    html {
-        background: red;
+    @media (max-width: 400px) {
+        html {
+            background: red;
+        }
     }
-}
 
-@media (min-width: 401px) and (max-width: 800px) {
-    html {
-        background: green;
+    @media (min-width: 401px) and (max-width: 800px) {
+        html {
+            background: green;
+        }
     }
-}
 
-@media (min-width: 801px) {
-    html {
-        background: blue;
+    @media (min-width: 801px) {
+        html {
+            background: blue;
+        }
     }
-}
-```
 
 ### 覆盖（overriding）
 
 可以对元素设置相同优先级，使用样式顺序，通过覆盖，避免排他
 
-```
-@media (min-width: 400px) {
-    html {
-        background: red;
+    @media (min-width: 400px) {
+        html {
+            background: red;
+        }
     }
-}
 
-@media (min-width: 600px) {
-    html {
-        background: green;
+    @media (min-width: 600px) {
+        html {
+            background: green;
+        }
     }
-}
 
-@media (min-width: 800px) {
-    html {
-        background: blue;
+    @media (min-width: 800px) {
+        html {
+            background: blue;
+        }
     }
-}
-```
 
 ### 无线端优先（Mobile first）
 
 默认样式假设为移动设备宽度，然后通过`min-width`控制扩展样式
 
-```
-html {
-    background: red;
-}
-
-@media (min-width: 600px) {
     html {
-        background: green;
+        background: red;
     }
-}
-```
+
+    @media (min-width: 600px) {
+        html {
+            background: green;
+        }
+    }
 
 ### PC优先（desktop first）
 
 默认以宽屏进行样式设置，通过`max-width`控制样式覆盖
 
-```
-html {
-    background: red;
-}
-
-@media (max-width: 600px) {
     html {
-        background: green;
+        background: red;
     }
-}
-```
+
+    @media (max-width: 600px) {
+        html {
+            background: green;
+        }
+    }
 
 ## 参考资料
 
