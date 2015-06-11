@@ -1,5 +1,6 @@
 ---
 title: "[译]javascript动画"
+category: animation
 ---
 
 # javascript动画
@@ -19,7 +20,7 @@ javascript动画基本思想是按照一定间隔修改DOM元素的样式或者c
 
 在这里我们使用10ms的间隔,大部分框架默认使用10-15ms作为间隔,间隔越少动画越平滑,如果动画需要很多计算,可能消耗过多CPU资源,此时需要增加间隔.
 
-在这里我们使用`setInterval`而不是`setTimeout`是因为 we want a frame once per interval, not a fixed delay between frames.查看[理解计时器:setTimeout和setInterval][2]了解更多内容.
+在这里我们使用`setInterval`而不是`setTimeout`是因为 we want a frame once per interval, not a fixed delay between frames.查看[理解计时器:setTimeout和setInterval][2]了解更多内容.(注:最好使用requestAnimationFrame)
 
 下面是一个简单的例子,每10ms增加元素left值1px.直到100;
 

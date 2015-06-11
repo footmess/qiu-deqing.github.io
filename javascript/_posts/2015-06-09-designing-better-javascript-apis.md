@@ -244,11 +244,62 @@ DateInterval.prototype.days = function (start end) {
 
 ## 可扩展性
 
+### 回调(callback)
 
+回调可以通过配置实现可扩展性. 当你觉得某些任务需要不同处理方式的时候, 回调可以让用户自定义处理方式.
+
+    var default_options = {
+      position: fucntion ($elem, $parent) {
+        $elem.css($parent.position());
+      }
+    };
+
+    function Widget(options) {
+      this.options = jQuery.extend({}, default_options, options || {});
+      this.create();
+    }
+
+    Widget.prototype.create = function () {
+      this.$contaienr = $('<div></div>').appendTo(document.body);
+      this.$thingie = $('<div></div>').appendTo(this.$container);
+      return this;
+    };
+
+    Widget.prototype.show = function () {
+      this.options.position(this.$thingie, this.$contaienr);
+      this.$thingie.show();
+      return this;
+    };
+
+
+    var widget = new Widget({
+      position: function ($elem, $parent) {
+        var position = $parent.position();
+
+        position.left += $parent.width();
+        position.top += $parent.height();
+        $elem.css(position);
+      }
+    });
+
+    widget.show();
+
+### 事件
+
+我们使用事件实现模块之间的通信, 特别是对于UI组件.
+
+未完..
 
 ## 参考资料
 
 - [Reusable Code][7]
+- http://www.slideshare.net/slideshow/embed_code/5426258
+- http://perfectionkills.com/extending-built-in-native-objects-evil-or-not/
+- http://en.wikipedia.org/wiki/Command-query_separation
+- http://en.wikipedia.org/wiki/Method_chaining
+- http://martinfowler.com/bliki/FluentInterface.html
+- http://en.wikipedia.org/wiki/Fluent_interface#JavaScript
+- http://www.smashingmagazine.com/2012/10/09/designing-javascript-apis-usability/
 
 [7]: http://www.slideshare.net/slideshow/embed_code/5426258
 [6]: http://perfectionkills.com/extending-built-in-native-objects-evil-or-not/
