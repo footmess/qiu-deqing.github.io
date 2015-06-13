@@ -134,6 +134,20 @@ demo如下:
 
 <iframe width="100%" height="300" src="//jsfiddle.net/ynwt02bf/embedded/result,js,css,html/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
+
+随着功能的增加上面的代码会变得复杂并且难以管理，通常来说选择一个成熟的js动画库能带来很多好处。例如jQuery的`animate()`函数，或者[TweenMax][5]这样的专门动画库。
+
+使用JavaScript动画的好处是你可以完全控制元素的样式，并且可以随时暂停，停止，倒退。
+
+## 参考资料
+
+- [https://github.com/greensock/GreenSock-JS/tree/master/src/minified][5]
+- [https://developers.google.com/web/fundamentals/look-and-feel/animations/animations-and-performance.html#css-vs-javascript-performance][4]
+- [http://greensock.com/tweenlite][3]
+- [http://greensock.com/tweenmax][2]
+- [https://developers.google.com/web/fundamentals/look-and-feel/animations/css-vs-javascript?hl=en][1]
+
+[5]: https://github.com/greensock/GreenSock-JS/tree/master/src/minified
 [4]: https://developers.google.com/web/fundamentals/look-and-feel/animations/animations-and-performance.html#css-vs-javascript-performance
 [3]: http://greensock.com/tweenlite
 [2]: http://greensock.com/tweenmax
