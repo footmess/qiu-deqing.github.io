@@ -97,7 +97,7 @@ title: "[译]视图切换动画"
 
 你可以扩展这个例子到多视图模式，基本理念依然不变：不可见的视图需要隐藏在屏幕外面，然后在需要的时候显示出来，并且把当前视图移除。
 
-这里是完整的[在线demo][2]:http://qiudeqing.com/demo/animate/animate-between-view.html
+这里是完整的[在线demo][2]
 
 <iframe width="100%" height="300" src="//jsfiddle.net/gwcnx505/embedded/result,css,js,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
@@ -112,6 +112,6 @@ title: "[译]视图切换动画"
 
 
 [1]: https://developers.google.com/web/fundamentals/look-and-feel/animations/animating-between-views?hl=en
-
+[2]: http://qiudeqing.com/demo/animate/animate-between-view.html
 
 [i1]: http://7xio0w.com1.z0.glb.clouddn.com/QQ20150613-3@2x.png
