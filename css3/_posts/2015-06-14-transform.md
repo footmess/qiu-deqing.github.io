@@ -12,6 +12,7 @@ title: transform
 
 设置`none`意外的取值时，会创建一个[stacking context]，这个上下文会成为内部`position: fixed`元素的包含块。
 
+百分数长度计算依据为元素吃尺寸.
 
 <iframe width="100%" height="600" src="//jsfiddle.net/mse3mtpq/embedded/result,css,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
@@ -20,19 +21,33 @@ title: transform
 
 设置transform的原点，产生不同效果。
 
+## transform-style
+
+效果和解释: [https://www.webkit.org/blog-files/3d-transforms/transform-style.html][6]
+
 ## 2D transform
+
+
+### rotate(deg)
+
+deg为正时将元素顺时针旋转对应角度，为负时逆时针旋转对应角度。旋转中心为`transform-origin`
+
+如下面的例子：
+
+<iframe width="100%" height="300" src="//jsfiddle.net/otr6adw5/embedded/result,css,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+旋转矩形后面的灰色矩形模拟元素原始的位置。
 
 ### translate(x, y)
 
 根据指定的x，y移动元素
 
-### rotate(deg)
-
-以tranform-origin为中心旋转角度，deg为正时顺时针旋转，为负时逆时针。
 
 ### scale(x, y)
 
 以transform-origin为中心缩放元素，x,y大于1时放大，小于1时缩小。
+
+<iframe width="100%" height="300" src="//jsfiddle.net/spdvmvxn/embedded/result,css,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 ### skewX(deg)
 
@@ -73,9 +88,11 @@ title: transform
 - [http://www.the-art-of-web.com/css/3d-transforms/][2]
 - [https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function][3]
 - [http://learn.shayhowe.com/advanced-html-css/css-transforms/][4]
+- [http://css3files.com/transform/][5]
 
 
-
+[6]: https://www.webkit.org/blog-files/3d-transforms/transform-style.html
+[5]: http://css3files.com/transform/
 [4]: http://learn.shayhowe.com/advanced-html-css/css-transforms/
 [3]: https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function
 [2]: http://www.the-art-of-web.com/css/3d-transforms/
