@@ -19,7 +19,7 @@ title: transform
 
 ## transform-origin
 
-设置transform的原点，产生不同效果。
+transform默认的原点是元素的中心(50%, 50%)处，使用transform-origin可以修改原点位置。
 
 ## transform-style
 
@@ -38,16 +38,18 @@ deg为正时将元素顺时针旋转对应角度，为负时逆时针旋转对�
 
 旋转矩形后面的灰色矩形模拟元素原始的位置。
 
-### translate(x, y)
-
-根据指定的x，y移动元素
-
 
 ### scale(x, y)
 
 以transform-origin为中心缩放元素，x,y大于1时放大，小于1时缩小。
 
 <iframe width="100%" height="300" src="//jsfiddle.net/spdvmvxn/embedded/result,css,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+### translate(x, y)
+
+根据指定的x，y移动元素
+
+
 
 ### skewX(deg)
 
@@ -60,6 +62,11 @@ deg为正时将元素顺时针旋转对应角度，为负时逆时针旋转对�
 ### matrix(a, b, c, d, e, f)
 
 所有2d transform都可以通过matrix() 实现，window.getComputedStyle()返回的transform对应值也是matirx()表示
+
+
+2d transform 实现立方体效果
+
+<iframe width="100%" height="300" src="//jsfiddle.net/a9Lmc5hr/embedded/result,css,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 
 ## 3D  transform

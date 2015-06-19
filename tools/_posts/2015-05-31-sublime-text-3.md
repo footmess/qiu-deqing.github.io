@@ -1,7 +1,103 @@
 ---
 title: sublime text3基本使用及常用插件介绍
-
 ---
+
+## 概述
+
+sublime text3下载地址：[http://www.sublimetext.com/3][2]本文所有操作都是基于Sublime Text3，操作系统为mac，本文主要摘取自[Sublime Text Unofficial Documentation][1]。熟练掌握各种功能和技巧，能极大提高工作效率。
+
+[2]: http://www.sublimetext.com/3
+[1]: http://docs.sublimetext.info/en/latest/index.html
+
+## 安装
+
+- 官网下载`.dmg`文件
+- 打开`.dmg`文件
+- 拖拽Sublime Text 3到Applications文件夹
+
+如果想要在命令行中启动Sublime Text，需要在终端执行一下命令：
+
+    ln -s  "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
+
+这样设置之后在终端执行`subl`即可打开Sublime Text，执行`subl <filepath>`可以打开对应文件。
+
+## 基本概念
+
+熟悉本节介绍的概念能让你更好地理解本教程。
+
+### The Data Directory
+
+几乎所有需要的文件都会保存在data directory下，不同操作系统路径不同：
+
+- Windows: `%APPDATA%\Sublime Text 3`
+- OS X: `~/Library/Application Support/Sublime Text 3`
+- Linux: `~/.config/sublime-text-3`
+
+可以通过菜单:(Sublime Text -> Preferences -> Browse Packages...)在findle中打开该目录的子目录。
+
+### The Packages Directory
+
+这是data directory下的一个重要目录。关于编程和标记语言的所有支持都保存在这里。可以通过菜单:**(Sublime Text -> Preferences -> Browse Packages...)**在findle中打开该目录。
+
+本文中Packages, packages path, packages folder或者packages directory都指它。
+
+### The User Package
+
+`Packages/User`用于保存自定义插件(plugins)，snippets,宏(macros)。可以将它看作packages folder下的私人区域。个人程序和插件设置都存放在这里。
+
+Sublime Text更新时不会修改里面的内容。
+
+### Sublime Text是可编程的
+
+可以通过API使用Python开发插件。 快捷键``Ctrl + ` ``打开控制台，可以在这里执行Python脚本，可以通过这里安装一些插件。
+
+
+### Packages, Plugins, Resources and Other Terms
+
+几乎Sublime Text的所有功能都可以扩展和自定义，可以修改编辑器行为，添加macro和snippets，扩展菜单等等。也可以利用编辑器API创建复杂插件。
+
+Sublime Text的灵活性导致你需要学习很多配置文件。这些配置文件都是JSON活着XML格式。
+
+本文中有时候讲这些配置文件叫做resources。
+
+Sublime Text会查看packages folder下的resources。
+
+package是指包含相关资源的目录。
+
+
+### vi/vim Emlation
+
+可以使用[Vintageous][3]让Sublime Text支持vi/vim
+
+[3]: http://guillermooo.bitbucket.org/Vintageous
+
+
+
+## 编辑
+
+### 多字段选择修改
+
+Sublime Text支持多处文本的同时修改：
+
+- 选中需要修改的文字，编辑器会自动提示文档内的相同文本。
+- 按`Cmd + d`添加下一个文本段到标记列表，如果需要跳过当前文本段，按`Cmd + k`然后`Cmd + d`
+- 快捷键`Cmd + u`可以将当前文本段从编辑列表去掉
+- `ESC`键可以退出编辑状态
+
+### 整行选取
+
+- `Cmd + l`可以选取光标所在行，活着当前选区所在所有行
+- `Cmd + Shift + l`可以将选区的分裂为多选区，可同时编辑
+
+### 文本选择
+
+- `alt + shift + <arrow>`在对应放上增加下一个token入选区
+- `ctrl + shift + m`选中光标所在括号的所有内容
+- `Cmd + shift + j`选中与光标所在行相同缩进的内容
+
+### 字符交换
+
+- `ctrl + t`交换相邻的两个字母
 
 # sublime text3基本使用及常用插件介绍
 
