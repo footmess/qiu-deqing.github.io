@@ -1,0 +1,1325 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>body {
+  width: 45em;
+  border: 1px solid #ddd;
+  outline: 1300px solid #fff;
+  margin: 16px auto;
+}
+
+body .markdown-body
+{
+  padding: 30px;
+}
+
+@font-face {
+  font-family: fontawesome-mini;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+@font-face {
+  font-family: octicons-anchor;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333333;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body b,
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body sub,
+.markdown-body sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.markdown-body sup {
+  top: -0.5em;
+}
+.markdown-body sub {
+  bottom: -0.25em;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body .codehilitetable {
+  border: 0;
+  border-spacing: 0;
+}
+
+.markdown-body .codehilitetable tr {
+  border: 0;
+}
+
+.markdown-body .codehilitetable pre,
+.markdown-body .codehilitetable div.codehilite {
+  margin: 0;
+}
+
+.markdown-body .linenos,
+.markdown-body .code,
+.markdown-body .codehilitetable td {
+  border: 0;
+  padding: 0;
+}
+
+.markdown-body td:not(.linenos) .linenodiv {
+  padding: 0 !important;
+}
+
+.markdown-body .code {
+  width: 100%;
+}
+
+.markdown-body .linenos div pre,
+.markdown-body .linenodiv pre,
+.markdown-body .linenodiv {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.markdown-body .code div pre,
+.markdown-body .code div {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.markdown-body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.4;
+}
+
+.markdown-body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:focus,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before,
+.markdown-body hr:after {
+  display: table;
+  content: " ";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  background-color: #e7e7e7;
+  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
+  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
+  background-image: linear-gradient(#fefefe, #e7e7e7);
+  background-repeat: repeat-x;
+  border-radius: 2px;
+  border: 1px solid #cfcfcf;
+  color: #000;
+  padding: 3px 5px;
+  line-height: 10px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  display: inline-block;
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body .headeranchor-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  padding-right: 6px;
+  padding-left: 30px;
+  margin-left: -30px;
+}
+
+.markdown-body .headeranchor-link:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .headeranchor,
+.markdown-body h2 .headeranchor,
+.markdown-body h3 .headeranchor,
+.markdown-body h4 .headeranchor,
+.markdown-body h5 .headeranchor,
+.markdown-body h6 .headeranchor {
+  display: none;
+  color: #000;
+  vertical-align: middle;
+}
+
+.markdown-body h1:hover .headeranchor-link,
+.markdown-body h2:hover .headeranchor-link,
+.markdown-body h3:hover .headeranchor-link,
+.markdown-body h4:hover .headeranchor-link,
+.markdown-body h5:hover .headeranchor-link,
+.markdown-body h6:hover .headeranchor-link {
+  height: 1em;
+  padding-left: 8px;
+  margin-left: -30px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .headeranchor-link .headeranchor,
+.markdown-body h2:hover .headeranchor-link .headeranchor,
+.markdown-body h3:hover .headeranchor-link .headeranchor,
+.markdown-body h4:hover .headeranchor-link .headeranchor,
+.markdown-body h5:hover .headeranchor-link .headeranchor,
+.markdown-body h6:hover .headeranchor-link .headeranchor {
+  display: inline-block;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre,
+.markdown-body .admonition {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body code,
+.markdown-body samp {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .codehilite {
+  margin-bottom: 16px;
+}
+
+.markdown-body .codehilite pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .codehilite pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+/* Admonition */
+.markdown-body .admonition {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+  border-left: 6px solid #333;
+  padding: 10px 10px 10px 30px;
+}
+
+.markdown-body .admonition table {
+  color: #333;
+}
+
+.markdown-body .admonition p {
+  padding: 0;
+}
+
+.markdown-body .admonition-title {
+  font-weight: bold;
+  margin: 0;
+}
+
+.markdown-body .admonition>.admonition-title {
+  color: #333;
+}
+
+.markdown-body .attention>.admonition-title {
+  color: #a6d796;
+}
+
+.markdown-body .caution>.admonition-title {
+  color: #d7a796;
+}
+
+.markdown-body .hint>.admonition-title {
+  color: #96c6d7;
+}
+
+.markdown-body .danger>.admonition-title {
+  color: #c25f77;
+}
+
+.markdown-body .question>.admonition-title {
+  color: #96a6d7;
+}
+
+.markdown-body .note>.admonition-title {
+  color: #d7c896;
+}
+
+.markdown-body .admonition:before,
+.markdown-body .attention:before,
+.markdown-body .caution:before,
+.markdown-body .hint:before,
+.markdown-body .danger:before,
+.markdown-body .question:before,
+.markdown-body .note:before {
+  font: normal normal 16px fontawesome-mini;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+  color: #333;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.markdown-body .admonition:before {
+  content: "\f056\00a0";
+  color: 333;
+}
+
+.markdown-body .attention:before {
+  content: "\f058\00a0";
+  color: #a6d796;
+}
+
+.markdown-body .caution:before {
+  content: "\f06a\00a0";
+  color: #d7a796;
+}
+
+.markdown-body .hint:before {
+  content: "\f05a\00a0";
+  color: #96c6d7;
+}
+
+.markdown-body .danger:before {
+  content: "\f057\00a0";
+  color: #c25f77;
+}
+
+.markdown-body .question:before {
+  content: "\f059\00a0";
+  color: #96a6d7;
+}
+
+.markdown-body .note:before {
+  content: "\f040\00a0";
+  color: #d7c896;
+}
+
+.markdown-body .admonition::after {
+  content: normal;
+}
+
+.markdown-body .attention {
+  border-left: 6px solid #a6d796;
+}
+
+.markdown-body .caution {
+  border-left: 6px solid #d7a796;
+}
+
+.markdown-body .hint {
+  border-left: 6px solid #96c6d7;
+}
+
+.markdown-body .danger {
+  border-left: 6px solid #c25f77;
+}
+
+.markdown-body .question {
+  border-left: 6px solid #96a6d7;
+}
+
+.markdown-body .note {
+  border-left: 6px solid #d7c896;
+}
+
+.markdown-body .admonition>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body .admonition>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* progress bar*/
+.markdown-body .progress {
+  display: block;
+  width: 300px;
+  margin: 10px 0;
+  height: 24px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #ededed;
+  position: relative;
+  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+}
+
+.markdown-body .progress-label {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  width: 100%; margin: 0;
+  line-height: 24px;
+  color: #333;
+  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
+  -webkit-font-smoothing: antialiased !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.markdown-body .progress-bar {
+  height: 24px;
+  float: left;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #96c6d7;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
+  background-size: 30px 30px;
+  background-image: -webkit-linear-gradient(
+    135deg, rgba(255, 255, 255, .4) 27%,
+    transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%,
+    transparent 77%, transparent
+  );
+  background-image: -moz-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -ms-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+}
+
+.markdown-body .progress-100plus .progress-bar {
+  background-color: #a6d796;
+}
+
+.markdown-body .progress-80plus .progress-bar {
+  background-color: #c6d796;
+}
+
+.markdown-body .progress-60plus .progress-bar {
+  background-color: #d7c896;
+}
+
+.markdown-body .progress-40plus .progress-bar {
+  background-color: #d7a796;
+}
+
+.markdown-body .progress-20plus .progress-bar {
+  background-color: #d796a6;
+}
+
+.markdown-body .progress-0plus .progress-bar {
+  background-color: #c25f77;
+}
+
+.markdown-body .candystripe-animate .progress-bar{
+  -webkit-animation: animate-stripes 3s linear infinite;
+  -moz-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@-moz-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+.markdown-body .gloss .progress-bar {
+  box-shadow:
+    inset 0 4px 12px rgba(255, 255, 255, .7),
+    inset 0 -12px 0 rgba(0, 0, 0, .05);
+}
+
+/* Multimarkdown Critic Blocks */
+.markdown-body .critic_mark {
+  background: #ff0;
+}
+
+.markdown-body .critic_delete {
+  color: #c82829;
+  text-decoration: line-through;
+}
+
+.markdown-body .critic_insert {
+  color: #718c00 ;
+  text-decoration: underline;
+}
+
+.markdown-body .critic_comment {
+  color: #8e908c;
+  font-style: italic;
+}
+
+.markdown-body .headeranchor {
+  font: normal normal 16px octicons-anchor;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.headeranchor:before {
+  content: '\f05c';
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 4px 0.25em -20px;
+  vertical-align: middle;
+}
+
+/* Media */
+@media only screen and (min-width: 480px) {
+  .markdown-body {
+    font-size:14px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .markdown-body {
+    font-size:16px;
+  }
+}
+
+@media print {
+  .markdown-body * {
+    background: transparent !important;
+    color: black !important;
+    filter:none !important;
+    -ms-filter: none !important;
+  }
+
+  .markdown-body {
+    font-size:12pt;
+    max-width:100%;
+    outline:none;
+    border: 0;
+  }
+
+  .markdown-body a,
+  .markdown-body a:visited {
+    text-decoration: underline;
+  }
+
+  .markdown-body .headeranchor-link {
+    display: none;
+  }
+
+  .markdown-body a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  .markdown-body abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .markdown-body .ir a:after,
+  .markdown-body a[href^="javascript:"]:after,
+  .markdown-body a[href^="#"]:after {
+    content: "";
+  }
+
+  .markdown-body pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .markdown-body pre,
+  .markdown-body blockquote {
+    border: 1px solid #999;
+    padding-right: 1em;
+    page-break-inside: avoid;
+  }
+
+  .markdown-body .progress,
+  .markdown-body .progress-bar {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .markdown-body .progress {
+    border: 1px solid #ddd;
+  }
+
+  .markdown-body .progress-bar {
+    height: 22px;
+    border-right: 1px solid #ddd;
+  }
+
+  .markdown-body tr,
+  .markdown-body img {
+    page-break-inside: avoid;
+  }
+
+  .markdown-body img {
+    max-width: 100% !important;
+  }
+
+  .markdown-body p,
+  .markdown-body h2,
+  .markdown-body h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .markdown-body h2,
+  .markdown-body h3 {
+    page-break-after: avoid;
+  }
+}
+</style><title>2015-05-31-sublime-text-3</title></head><body><article class="markdown-body"><hr />
+<h2 id="title-sublime-text3"><a name="user-content-title-sublime-text3" href="#title-sublime-text3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>title: sublime text3基本使用及常用插件介绍</h2>
+<h2 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>概述</h2>
+<p>sublime text3下载地址：<a href="http://www.sublimetext.com/3"><a href="http://www.sublimetext.com/3"><a href="http://www.sublimetext.com/3">http://www.sublimetext.com/3</a></a></a>本文所有操作都是基于Sublime Text3，操作系统为mac，本文主要摘取自<a href="http://docs.sublimetext.info/en/latest/index.html">Sublime Text Unofficial Documentation</a>。熟练掌握各种功能和技巧，能极大提高工作效率。</p>
+<h2 id="_2"><a name="user-content-_2" href="#_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>安装</h2>
+<ul>
+<li>官网下载<code>.dmg</code>文件</li>
+<li>打开<code>.dmg</code>文件</li>
+<li>拖拽Sublime Text 3到Applications文件夹</li>
+</ul>
+<p>如果想要在命令行中启动Sublime Text，需要在终端执行一下命令：</p>
+<pre><code>ln -s  "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
+</code></pre>
+<p>这样设置之后在终端执行<code>subl</code>即可打开Sublime Text，执行<code>subl &lt;filepath&gt;</code>可以打开对应文件。</p>
+<h2 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>基本概念</h2>
+<p>熟悉本节介绍的概念能让你更好地理解本教程。</p>
+<h3 id="the-data-directory"><a name="user-content-the-data-directory" href="#the-data-directory" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>The Data Directory</h3>
+<p>几乎所有需要的文件都会保存在data directory下，不同操作系统路径不同：</p>
+<ul>
+<li>Windows: <code>%APPDATA%\Sublime Text 3</code></li>
+<li>OS X: <code>~/Library/Application Support/Sublime Text 3</code></li>
+<li>Linux: <code>~/.config/sublime-text-3</code></li>
+</ul>
+<p>可以通过菜单:(Sublime Text -&gt; Preferences -&gt; Browse Packages&hellip;)在findle中打开该目录的子目录。</p>
+<h3 id="the-packages-directory"><a name="user-content-the-packages-directory" href="#the-packages-directory" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>The Packages Directory</h3>
+<p>这是data directory下的一个重要目录。关于编程和标记语言的所有支持都保存在这里。可以通过菜单:<strong>(Sublime Text -&gt; Preferences -&gt; Browse Packages&hellip;)</strong>在findle中打开该目录。</p>
+<p>本文中Packages, packages path, packages folder或者packages directory都指它。</p>
+<h3 id="the-user-package"><a name="user-content-the-user-package" href="#the-user-package" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>The User Package</h3>
+<p><code>Packages/User</code>用于保存自定义插件(plugins)，snippets,宏(macros)。可以将它看作packages folder下的私人区域。个人程序和插件设置都存放在这里。</p>
+<p>Sublime Text更新时不会修改里面的内容。</p>
+<h3 id="sublime-text"><a name="user-content-sublime-text" href="#sublime-text" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Sublime Text是可编程的</h3>
+<p>可以通过API使用Python开发插件。 快捷键<code>Ctrl + `</code>打开控制台，可以在这里执行Python脚本，可以通过这里安装一些插件。</p>
+<h3 id="packages-plugins-resources-and-other-terms"><a name="user-content-packages-plugins-resources-and-other-terms" href="#packages-plugins-resources-and-other-terms" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Packages, Plugins, Resources and Other Terms</h3>
+<p>几乎Sublime Text的所有功能都可以扩展和自定义，可以修改编辑器行为，添加macro和snippets，扩展菜单等等。也可以利用编辑器API创建复杂插件。</p>
+<p>Sublime Text的灵活性导致你需要学习很多配置文件。这些配置文件都是JSON活着XML格式。</p>
+<p>本文中有时候讲这些配置文件叫做resources。</p>
+<p>Sublime Text会查看packages folder下的resources。</p>
+<p>package是指包含相关资源的目录。</p>
+<h3 id="vivim-emlation"><a name="user-content-vivim-emlation" href="#vivim-emlation" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>vi/vim Emlation</h3>
+<p>可以使用<a href="http://guillermooo.bitbucket.org/Vintageous">Vintageous</a>让Sublime Text支持vi/vim</p>
+<h2 id="_4"><a name="user-content-_4" href="#_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>编辑</h2>
+<h3 id="_5"><a name="user-content-_5" href="#_5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>多字段选择修改</h3>
+<p>Sublime Text支持多处文本的同时修改：</p>
+<ul>
+<li>选中需要修改的文字，编辑器会自动提示文档内的相同文本。</li>
+<li>按<code>Cmd + d</code>添加下一个文本段到标记列表，如果需要跳过当前文本段，按<code>Cmd + k</code>然后<code>Cmd + d</code></li>
+<li>快捷键<code>Cmd + u</code>可以将当前文本段从编辑列表去掉</li>
+<li><code>ESC</code>键可以退出编辑状态</li>
+</ul>
+<h3 id="_6"><a name="user-content-_6" href="#_6" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>整行选取</h3>
+<ul>
+<li><code>Cmd + l</code>可以选取光标所在行，活着当前选区所在所有行</li>
+<li><code>Cmd + Shift + l</code>可以将选区的分裂为多选区，可同时编辑</li>
+</ul>
+<h3 id="_7"><a name="user-content-_7" href="#_7" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>文本选择</h3>
+<ul>
+<li><code>alt + shift + &lt;arrow&gt;</code>在对应放上增加下一个token入选区</li>
+<li><code>ctrl + shift + m</code>选中光标所在括号的所有内容</li>
+<li><code>Cmd + shift + j</code>选中与光标所在行相同缩进的内容</li>
+</ul>
+<h3 id="_8"><a name="user-content-_8" href="#_8" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>字符交换</h3>
+<ul>
+<li><code>ctrl + t</code>交换相邻的两个字母</li>
+</ul>
+<h2 id="_9"><a name="user-content-_9" href="#_9" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>搜索替换</h2>
+<p>Sublime Text支持Perl Compatible Regular Expressions (PCRE) engine的正则表达式搜索，默认搜索为普通搜索，需要在搜索框左边点击对应按钮切换到正则表达式搜索，也可以使用快捷键进行切换。</p>
+<ul>
+<li><code>option + Cmd + r</code> 搜索的正则表达式和普通文本切换</li>
+</ul>
+<h3 id="_10"><a name="user-content-_10" href="#_10" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>单文件内的搜索和替换</h3>
+<ul>
+<li><code>Cmd ＋ f</code>打开搜索框</li>
+<li><code>ESC</code>关闭搜索框</li>
+<li><code>option + Cmd + c</code>切换区分大小写</li>
+<li><code>option + Cmd + w</code>切换是否完整匹配：time 匹配timeOut或者 time单独单词</li>
+<li><code>option + Enter</code>选中全部匹配结果并可同时编辑</li>
+<li><code>Cmd + g</code>或者<code>Enter</code>查找下一个</li>
+<li><code>Cmd + shift + g</code>查找前一个</li>
+<li><code>Cmd + e</code>选中文本后按此快捷键可直接搜索</li>
+</ul>
+<h3 id="_11"><a name="user-content-_11" href="#_11" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>替换</h3>
+<ul>
+<li><code>option + Cmd + f</code>打开替换面板</li>
+<li><code>Cmd + g</code>或者<code>Enter</code>查找下一个</li>
+<li><code>option + Cmd + e</code>替换并查找下一个</li>
+<li><code>option + Enter</code>当焦点在替换面版时会选中全部匹配项并处于可编辑状态</li>
+</ul>
+<h2 id="_12"><a name="user-content-_12" href="#_12" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>多文件搜索</h2>
+<ul>
+<li><code>Cmd + shift + f</code>打开多文件搜索面版</li>
+</ul>
+<h3 id="_13"><a name="user-content-_13" href="#_13" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>设置多文件搜索范围</h3>
+<p>在多文件搜索面版的Where栏指定搜索范围，支持以下方式的搜索范围指定：</p>
+<ul>
+<li>unix格式的路径</li>
+<li>使用通配符排除特定文件</li>
+<li>symbolic location入：<code>&lt;open folders&gt;</code>,<code>&lt;open files&gt;</code>等</li>
+</ul>
+<p>也可以使用逗号结合以上三种格式的范围。</p>
+<h2 id="_14"><a name="user-content-_14" href="#_14" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>文件导航和文件管理</h2>
+<h3 id="goto-anything"><a name="user-content-goto-anything" href="#goto-anything" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>goto anything文件导航</h3>
+<p>搜索项目任意文件并导航。可在搜索栏进行过滤，可预览当前选中文件。</p>
+<ul>
+<li><code>Cmd + p</code>打开文件面版</li>
+<li><code>Enter</code>打开当前项并关闭导航面版</li>
+<li><code>-&gt;</code>打开当前项，不关闭导航面版</li>
+<li><code>ESC</code>关闭导航面版</li>
+</ul>
+<p>更多操作：</p>
+<ul>
+<li><code>Cmd + r</code>搜索当前文件内的<a href="http://docs.sublimetext.info/en/latest/reference/symbols.html">symbol</a>，如函数，类，或者markdown的标题</li>
+<li><code>ctrl + g</code>跳转到指定行</li>
+</ul>
+<h1 id="sublime-text3"><a name="user-content-sublime-text3" href="#sublime-text3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>sublime text3基本使用及常用插件介绍</h1>
+<p>sublime text3下载地址：<a href="http://www.sublimetext.com/3"><a href="http://www.sublimetext.com/3"><a href="http://www.sublimetext.com/3">http://www.sublimetext.com/3</a></a></a>本文所有操作都是基于Sublime Text3</p>
+<p>这里是一个<a href="http://zh.lucida.me/blog/sublime-text-complete-guide/">非常全面的教程</a></p>
+<h2 id="_15"><a name="user-content-_15" href="#_15" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>快捷键列表</h2>
+<ul>
+<li>Ctrl + g    跳转到相应的行</li>
+<li>Ctrl + m    在括号起始位置和终止位置之间切换</li>
+<li>Ctrl + Shift + m    选中括号内内容</li>
+<li>Ctrl + Shift + k    删除光标所在行</li>
+<li>Ctrl + x    当光标选中区间时剪切选中区间，否则剪切光标所在行</li>
+<li>Ctrl + Shift + up   向上选择行，并支持同时编辑多行</li>
+<li>Ctrl + Shift + down 向下选择行，并支持同时编辑多行</li>
+<li>Ctrl + l    选择光标所在行</li>
+</ul>
+<h2 id="faqs"><a name="user-content-faqs" href="#faqs" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>FAQs</h2>
+<h3 id="gbk"><a name="user-content-gbk" href="#gbk" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>不支持gbk编码</h3>
+<p>安装插件<strong>ConvertToUTF8</strong>,可能需要根据提示安装辅助插件</p>
+<h3 id="html"><a name="user-content-html" href="#html" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>HTML标签中间的大括号如何自动补全</h3>
+<p>菜单-&gt; preferences -&gt; Key Bindings - User在json配置文件中添加如下配置</p>
+<pre><code>{ "keys": ["{"], "command": "insert_snippet", "args": {"contents": "{$0}"}}
+</code></pre>
+<h3 id="_16"><a name="user-content-_16" href="#_16" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>中文输入法不跟随输入位置</h3>
+<p>答：官方修复之前使用：IMESupport插件</p>
+<h3 id="handlebarhtml"><a name="user-content-handlebarhtml" href="#handlebarhtml" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>如何为特定文件类型制定语法高亮，如为.handlebar文件设置html高亮</h3>
+<p>答：菜单中选择：<code>View &gt; Syntax &gt; Open all current extension as... &gt; html</code>这样就可以为自定义后缀名文件使用所需的语法高亮</p>
+<h2 id="package-control"><a name="user-content-package-control" href="#package-control" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Package Control</h2>
+<p><a href="https://sublime.wbond.net/installation">Package Control</a>是Sublime Text的包管理器，可以通过它安装<a href="https://sublime.wbond.net/browse">2000多个package</a>。安装后的package将自动更新。基本上大部分工具通过自动和手动都可以完成安装。</p>
+<h3 id="package-control_1"><a name="user-content-package-control_1" href="#package-control_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>通过控制台安装Package Control</h3>
+<ol>
+<li>按快捷键ctrl + `调出控制台</li>
+<li>
+<p>在控制台中运行如下代码</p>
+<pre><code>import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
+</code></pre>
+</li>
+<li>
+<p>以上代码将创建Package安装目录。并且下载<a href="https://sublime.wbond.net/Package%20Control.sublime-package">Package Control.sublime-package</a>文件到目录下。</p>
+</li>
+<li>重启Sublime Text，完成安装</li>
+</ol>
+<h3 id="package-control_2"><a name="user-content-package-control_2" href="#package-control_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>手动安装Package Control</h3>
+<p>自动安装的原理其实就是在特定目录为Package Control创建文件夹和配置文件，手动创建所需目录，文件同样可以达到安装的目的：</p>
+<ol>
+<li>菜单中选择：<code>Preferences &gt; Browse Packages...</code></li>
+<li>在打开的资源管理器中向上一个目录，然后进入到<code>Installed Packages/</code>目录</li>
+<li>下载<a href="https://sublime.wbond.net/Package%20Control.sublime-package">Package Control.sublime-package</a>并复制到<code>Installed Packages/</code>目录下</li>
+<li>重启Sublime Text，完成安装</li>
+</ol>
+<h2 id="emmet"><a name="user-content-emmet" href="#emmet" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Emmet</h2>
+<p><a href="https://github.com/sergeche/emmet-sublime">Emmet</a>通过简洁的语法描述html内容，提高工作效率</p>
+<h3 id="package-controlemmet"><a name="user-content-package-controlemmet" href="#package-controlemmet" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>使用Package Control安装Emmet</h3>
+<ol>
+<li>快捷键<code>ctrl + shift + p</code>然后在控制窗口中输入<code>Package Control: Install Package</code></li>
+<li>选择<code>Emmet</code>安装，重启Sublime Text完成安装</li>
+</ol>
+<h3 id="_17"><a name="user-content-_17" href="#_17" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>快捷键</h3>
+<h4 id="tab"><a name="user-content-tab" href="#tab" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Tab</h4>
+<p>在HTML, XML, HAML, CSS, SASS/SCSS, LESS and strings in programming languages (like JavaScript, Python, Ruby etc.)中按Emmet语法写好语句后<code>Tab</code>键即可生成所需的代码。</p>
+<p>由于某些语言中Sublime Text默认的Tab行为是作者更期望的，可以在<code>Emmet.sublime-setting</code>文件中设置<code>disable_tab_abbreviations_for_scopes</code>来取消Tab在这些文件类型中的触发。具体方法见官网<a href="https://github.com/sergeche/emmet-sublime#tab-key-handler">tab-key-handler</a></p>
+<h3 id="ctrl-e"><a name="user-content-ctrl-e" href="#ctrl-e" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>ctrl + e</h3>
+<p>默认在大部分自定义后缀名的文件中使用Tab是不能触发Emmet的，但是使用<code>ctrl + e</code>可以在任意文档中生效，这在编写html模板时非常有用</p>
+<h3 id="emmet_1"><a name="user-content-emmet_1" href="#emmet_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Emmet基本语法</h3>
+<p><a href="http://www.landfancy.com/archives/emmet-zen-coding-tutorial/">emmet-zen-coding-tutorial</a>是个很不错的教程，下面是一些简单的语法规则</p>
+<h4 id="_18"><a name="user-content-_18" href="#_18" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>元素</h4>
+<p>通过元素名生成HTML标签，如div生成&lt;div&gt;&lt;/div&gt;，当需要生成自定义标签时，使用<code>ctrl + e</code>即可，如foo生成&lt;foo&gt;&lt;/foo&gt;</p>
+<h3 id="_19"><a name="user-content-_19" href="#_19" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>子元素嵌套&gt;</h3>
+<p>类似CSS子选择器<code>div&gt;ul&gt;li</code>生成</p>
+<pre><code>&lt;div&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+<h3 id="_20"><a name="user-content-_20" href="#_20" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>兄弟元素+</h3>
+<p>类似CSS兄弟选择器，+生成兄弟关系的元素<code>div+p+div</code>生成</p>
+<pre><code>&lt;div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;div&gt;&lt;/div&gt;
+</code></pre>
+<h3 id="_21"><a name="user-content-_21" href="#_21" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>向上操作符^</h3>
+<p>Emmet操作符的作用对象是基于当前上下文的，&gt;操作符会让上下文向下转移到深层元素，^操作符可以向上移动上下文，如<code>div+div&gt;p&gt;span+em</code>生成</p>
+<pre><code>&lt;div&gt;&lt;/div&gt;
+&lt;div&gt;
+    &lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;em&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p>通过^操作符修改上下文控制元素<code>div+div&gt;p&gt;span+em^bq</code>生成</p>
+<pre><code>&lt;div&gt;&lt;/div&gt;
+&lt;div&gt;
+    &lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;em&gt;&lt;/em&gt;&lt;/p&gt;
+    &lt;blockquote&gt;&lt;/blockquote&gt;
+&lt;/div&gt;
+</code></pre>
+<h3 id="_22"><a name="user-content-_22" href="#_22" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>多元素操作符*</h3>
+<p>使用*后跟数字，生成对于数量的元素<code>ul&gt;li*5</code>生成</p>
+<pre><code>&lt;ul&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<h3 id="_23"><a name="user-content-_23" href="#_23" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>分组操作符()</h3>
+<p>使用括号分组完成复杂的逻辑<code>div&gt;(div&gt;ul&gt;li*2&gt;a)*2+footer&gt;p</code>生成</p>
+<pre><code>&lt;div&gt;
+    &lt;div&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href=""&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=""&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href=""&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=""&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;footer&gt;
+        &lt;p&gt;&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/div&gt;
+</code></pre>
+<h3 id="idclass"><a name="user-content-idclass" href="#idclass" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>id和class生成</h3>
+<p>使用类似css中id和class的语法，可以为元素添加所需属性如<code>div#header+div.cls1.cls2</code>生成</p>
+<pre><code>&lt;div id="header"&gt;&lt;/div&gt;
+&lt;div class="cls1 cls2"&gt;&lt;/div&gt;
+</code></pre>
+<h3 id="_24"><a name="user-content-_24" href="#_24" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>自定义属性</h3>
+<p>使用类似css中[attr]的语法添加自定义属性<code>td[title="Hello" colspan=3]</code>生成</p>
+<pre><code>&lt;td title="hello" colspan="3"&gt;&lt;/td&gt;
+</code></pre>
+<h3 id="_25"><a name="user-content-_25" href="#_25" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>元素编号$</h3>
+<p>使用*生成多个元素的时候，可以使用$进行编号<code>ul&gt;li.item$*5</code>生成</p>
+<pre><code>&lt;ul&gt;
+    &lt;li class="item1"&gt;&lt;/li&gt;
+    &lt;li class="item2"&gt;&lt;/li&gt;
+    &lt;li class="item3"&gt;&lt;/li&gt;
+    &lt;li class="item4"&gt;&lt;/li&gt;
+    &lt;li class="item5"&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<h3 id="_26"><a name="user-content-_26" href="#_26" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>{}添加文本</h3>
+<p><code>ul&gt;(li{item $})*3</code>生成</p>
+<pre><code>&lt;ul&gt;
+    &lt;li&gt;item 1&lt;/li&gt;
+    &lt;li&gt;item 2&lt;/li&gt;
+    &lt;li&gt;item 3&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<h2 id="sublime-text-markdown-preview"><a name="user-content-sublime-text-markdown-preview" href="#sublime-text-markdown-preview" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Sublime Text Markdown Preview</h2>
+<p><a href="https://github.com/revolunet/sublimetext-markdown-preview">sublimetext-markdown-preview</a>是Sublime Text的一个Markdown预览插件，有了它就可以轻松使用Sublime Text编辑Markdown文档了。</p>
+<h3 id="package-control_3"><a name="user-content-package-control_3" href="#package-control_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>使用Package Control安装</h3>
+<ol>
+<li>如果没有安装过Package Control，先安装</li>
+<li>按快捷键<code>Ctrl + shift + p</code>打开命令窗口</li>
+<li>在命令窗口中执行<code>Package Control: Install Package</code></li>
+<li>选择<code>Markdown Preview</code>并进行安装</li>
+</ol>
+<h3 id="_27"><a name="user-content-_27" href="#_27" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>手动安装</h3>
+<ol>
+<li>在菜单中选择<code>Preferences &gt; Browse Packages...</code></li>
+<li>在弹出的资源管理器中向上一个目录，然后进入到<code>Installed Packages/</code>目录</li>
+<li>下载<a href="https://github.com/revolunet/sublimetext-markdown-preview/archive/master.zip">sublimetext-markdown-preview压缩包</a>到<code>Installed Packages/</code>目录下并重命名为<code>Markdown Preview.sublime-package</code></li>
+<li>重启Sublime Text</li>
+</ol>
+<h3 id="markdown"><a name="user-content-markdown" href="#markdown" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>预览Markdown文件</h3>
+<ol>
+<li>打开Markdown文件</li>
+<li>快捷键<code>Ctrl + shift + p</code>，在控制窗口中输入<code>Markdown Preview</code></li>
+<li>此时有多个选项可选，一般选择<code>Markdown Preview: Preview in Browser</code></li>
+<li>此时要求选择解析器，任选一个即可</li>
+<li>Sublime Text在默认浏览器中打开Markdown解析后的html文件，有时候只是在新选项卡中打开了html文件，可以右键：<code>copy file path</code>然后到浏览器中访问即可</li>
+</ol>
+<h2 id="sublime-autoprefixer"><a name="user-content-sublime-autoprefixer" href="#sublime-autoprefixer" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>sublime-autoprefixer</h2>
+<p><a href="https://github.com/sindresorhus/sublime-autoprefixer">sublime-autoprefixer</a>根据<a href="http://caniuse.com/">Can I Use</a>数据库信息为CSS样式添加适当的厂商前缀，也可以自定义需要添加前缀的浏览器版本。</p>
+<p>sublime-autoprefixer只对CSS起作用，不处理Sass或者LESS之类的预处理格式。</p>
+<h3 id="package-controlsublime-autoprefixer"><a name="user-content-package-controlsublime-autoprefixer" href="#package-controlsublime-autoprefixer" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>使用Package Control安装sublime-autoprefixer</h3>
+<ol>
+<li>快捷键<code>ctrl + shift + p</code>然后控制台输入<code>Package Control: Install Package</code></li>
+<li>在弹出窗口中输入<code>Autoprefixer</code>，安装，重启Sublime Text</li>
+</ol>
+<h3 id="autoprefixer"><a name="user-content-autoprefixer" href="#autoprefixer" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>使用autoprefixer</h3>
+<ol>
+<li>支持整个css文件添加前缀，也可选中部分cas代码添加前缀</li>
+<li>快捷键<code>ctrl + shift + p</code>，输入<code>Autoprefix CSS</code>回车</li>
+</ol>
+<h2 id="brackethighlighter"><a name="user-content-brackethighlighter" href="#brackethighlighter" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>使用<a href="https://github.com/facelessuser/BracketHighlighter/tree/ST3">BracketHighlighter</a>高亮括号配对</h2>
+<p>高亮括号配对在查找时很方便</p>
+<h3 id="package-controlbrackethighlighter"><a name="user-content-package-controlbrackethighlighter" href="#package-controlbrackethighlighter" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>使用Package Control安装BracketHighlighter</h3>
+<ol>
+<li>如果没有Package Control，先安装</li>
+<li>快捷键<code>ctrl + shift + p</code>，在控制窗口中输入<code>Package Control: Install Package</code></li>
+<li>在控制窗口中输入<code>BracketHighlighter</code>并选择安装</li>
+<li>安装完成</li>
+</ol></article></body></html>

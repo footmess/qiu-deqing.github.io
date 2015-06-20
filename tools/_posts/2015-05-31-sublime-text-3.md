@@ -112,14 +112,59 @@ Sublime Text支持Perl Compatible Regular Expressions (PCRE) engine的正则表�
 - `option + Cmd + c`切换区分大小写
 - `option + Cmd + w`切换是否完整匹配：time 匹配timeOut或者 time单独单词
 - `option + Enter`选中全部匹配结果并可同时编辑
-- `Enter`查找下一个
+- `Cmd + g`或者`Enter`查找下一个
 - `Cmd + shift + g`查找前一个
+- `Cmd + e`选中文本后按此快捷键可直接搜索
 
 ### 替换
 
 - `option + Cmd + f`打开替换面板
+- `Cmd + g`或者`Enter`查找下一个
+- `option + Cmd + e`替换并查找下一个
+- `option + Enter`当焦点在替换面版时会选中全部匹配项并处于可编辑状态
+
+## 多文件搜索
+
+- `Cmd + shift + f`打开多文件搜索面版
+
+### 设置多文件搜索范围
+
+在多文件搜索面版的Where栏指定搜索范围，支持以下方式的搜索范围指定：
+
+- unix格式的路径
+- 使用通配符排除特定文件
+- symbolic location入：`<open folders>`,`<open files>`等
+
+也可以使用逗号结合以上三种格式的范围。
+
+## 文件导航和文件管理
+
+### goto anything文件导航
+
+搜索项目任意文件并导航。可在搜索栏进行过滤，可预览当前选中文件。
+
+- `Cmd + p`打开文件面版
+- `Enter`打开当前项并关闭导航面版
+- `->`打开当前项，不关闭导航面版
+- `ESC`关闭导航面版
+
+更多操作：
+
+- `Cmd + r`搜索当前文件内的[symbol][4]，如函数，类，或者markdown的标题
+- `ctrl + g`跳转到指定行
 
 
+### 左侧side bar导航
+
+- `Cmd + k`然后`Cmd + b`可切换导航关闭状态
+
+## 项目
+
+Sublime Text将当前打开文件，文件夹当作一个project，将文件夹拖拽到side bar可添加到当前项目。菜单中选择**(Project -> Save Project As...)**可将相关文件文件夹关联信息保存，下次通过菜单**(Project -> open project)**可快速打开所有相关文件。
+
+
+
+[4]: http://docs.sublimetext.info/en/latest/reference/symbols.html
 
 
 # sublime text3基本使用及常用插件介绍
