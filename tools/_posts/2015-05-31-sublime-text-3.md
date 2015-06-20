@@ -167,6 +167,7 @@ Sublime Text将当前打开文件，文件夹当作一个project，将文件夹�
 [4]: http://docs.sublimetext.info/en/latest/reference/symbols.html
 
 
+
 # sublime text3基本使用及常用插件介绍
 
 sublime text3下载地址：[http://www.sublimetext.com/3](http://www.sublimetext.com/3)本文所有操作都是基于Sublime Text3
