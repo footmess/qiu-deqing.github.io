@@ -99,6 +99,29 @@ Sublime Text支持多处文本的同时修改：
 
 - `ctrl + t`交换相邻的两个字母
 
+## 搜索替换
+
+Sublime Text支持Perl Compatible Regular Expressions (PCRE) engine的正则表达式搜索，默认搜索为普通搜索，需要在搜索框左边点击对应按钮切换到正则表达式搜索，也可以使用快捷键进行切换。
+
+- `option + Cmd + r` 搜索的正则表达式和普通文本切换
+
+### 单文件内的搜索和替换
+
+- `Cmd ＋ f`打开搜索框
+- `ESC`关闭搜索框
+- `option + Cmd + c`切换区分大小写
+- `option + Cmd + w`切换是否完整匹配：time 匹配timeOut或者 time单独单词
+- `option + Enter`选中全部匹配结果并可同时编辑
+- `Enter`查找下一个
+- `Cmd + shift + g`查找前一个
+
+### 替换
+
+- `option + Cmd + f`打开替换面板
+
+
+
+
 # sublime text3基本使用及常用插件介绍
 
 sublime text3下载地址：[http://www.sublimetext.com/3](http://www.sublimetext.com/3)本文所有操作都是基于Sublime Text3
