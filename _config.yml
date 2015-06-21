@@ -7,3 +7,7 @@ defaults:
       path: ""
     values:
       layout: "blog"
+
+## markdown解析器支持Github Flavored Markdown
+kramdown:
+  input: GFM
