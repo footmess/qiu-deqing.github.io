@@ -51,6 +51,47 @@ TouchEvent对象用描述touch事件，包含以下属性：
 
 需要监听`touchmove`事件动态判断水平还是竖直滑动。
 
+```
+var touchStartClientX,
+  touchStartClientY;
+
+document.addEventListener('touchstart', function (event) {
+  if (event.targetTouches.length > 1) {
+    return; // 忽略多个手指触摸
+  }
+
+  touchStartClientX = event.touches[0].clientX;
+  touchStartClientY = event.touches[0].clientY;
+
+  event.preventDefault();
+}, false);
+
+document.addEventListener('touchmove', function (event) {
+  event.preventDefault();
+}, false);
+
+document.addEventListener('touchend', function (event) {
+  if (event.targetTouches > 0) {
+    return; // 忽略多个触点
+  }
+
+  var touchEndClientX = event.touches[0].clientX,
+    touchEndClientY = event.touches[0].clientY;
+
+  var dx = touchEndClientX - touchStartClientX;
+  var absDx = Math.abs(dx);
+
+  var dy = touchEndClientY - touchStartClientY;
+  var absDy = Math.abs(dy);
+
+  // 如果移动距离大于10px，认为它是滑动
+  if (Math.max(absDx, absDy) > 10) {
+    var dir = absDx > absDy ? (dx > 0 ? 'left' : 'right') :
+      (dy > 0 ? 'down' : 'up');
+  }
+}, false);
+```
+
 ## 300ms延迟
 
 - [https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away?hl=en][8]
