@@ -2,7 +2,8 @@
 title: touch 事件
 ---
 
-[http://www.w3.org/TR/touch-events/][4]
+- [http://www.w3.org/TR/touch-events/][4]
+- [Getting touchy - Introduction to touch (and pointer) events / jQuery Europe 2014][6]
 
 
 ## 事件类型
@@ -46,6 +47,18 @@ TouchEvent对象用描述touch事件，包含以下属性：
 如果用户代理将touch事件解析为鼠标事件，那它必须在`touchend`位置按顺序发送`mousemove`,`mousedown`,`mouseup`,`click`事件。
 
 
+## 如何处理手指在触摸屏上的滑动(swipe)事件
+
+需要监听`touchmove`事件动态判断水平还是竖直滑动。
+
+## 300ms延迟
+
+- [https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away?hl=en][8]
+
+
+[8]: https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away?hl=en
+[7]: http://blog.mobiscroll.com/working-with-touch-events/
+[6]: http://www.slideshare.net/redux/getting-touchy-introduction-to-touch-and-pointer-events-jquery-europe-2014-vienna-28022014
 [5]: https://developer.mozilla.org/en-US/docs/Web/Events/touchcancel
 [4]: http://www.w3.org/TR/touch-events/
 [3]: https://developer.mozilla.org/en-US/docs/Web/Events/touchend
