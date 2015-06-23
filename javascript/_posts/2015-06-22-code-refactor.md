@@ -41,8 +41,8 @@ url: `follow.json`
 
 |    code   |   msg    |  说明     |
 |-----------|----------|----------|
-|   1      |  sucess  | 收藏成功   |
-|   2      |  fail    | 收藏失败   |
+|   1      |  sucess  | 关注成功   |
+|   2      |  fail    | 关注失败   |
 
 ### 检查关注接口
 
@@ -66,8 +66,8 @@ url: `checkFollow.json`
 
 |    code   |   msg    |  说明     |
 |-----------|----------|----------|
-|   1      |  not exist  | 未收藏   |
-|   2      |  exist    | 已收藏   |
+|   1      |  not exist  | 未关注   |
+|   2      |  exist    | 已关注   |
 
 ### 领取礼盒
 
@@ -111,7 +111,7 @@ javascript(使用jQuery):
 ```
 $('.gift').on('click', function (e) {
   $.ajax({
-    url: 'checkFollow.json' // 检查是否收藏
+    url: 'checkFollow.json' // 检查是否关注
   })
   .done(function (data) {
     switch (data.info.code) {
@@ -179,7 +179,7 @@ $('.gift').on('click', function (e) {
 - 打开礼盒这个逻辑在两个地方重复出现，如果第三个地方出现这个功能，那必须重写一遍，假设有10个地方用到，就需要复制10遍。第二天客户说要增加一种礼盒开奖结果。那么需要修改10个地方
 - 所有的ajax使用switch处理不同情况，然后再嵌套ajax， switch很容易产生混乱，code的不同编码没有包含任何语意，需要多处添加注释，否则需要回去查阅API文档
 - 如果开礼盒引入积分规则，关注之后需要判断积分是否足够才能开礼盒，需要修改的地方就更多了
-- 如果页面其他地方需要使用关注，检测收藏，开礼盒，代码需要重复复制
+- 如果页面其他地方需要使用关注，检测关注，开礼盒，代码需要重复复制
 - 如果接口升级需要更换地址，需要到代码中到处搜索替换
 
 
@@ -209,7 +209,7 @@ util.noop = function () {};
 
 
 /**
- * 检查当前用户是否收藏，然后执行对应操作
+ * 检查当前用户是否关注，然后执行对应操作
  * arg {Object} 配置回调，内容见defaults
  **/
 util.checkFollow = function (arg) {
