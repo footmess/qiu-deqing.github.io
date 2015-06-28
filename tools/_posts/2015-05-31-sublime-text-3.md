@@ -433,4 +433,10 @@ sublime-autoprefixer只对CSS起作用，不处理Sass或者LESS之类的预处�
 3. 在控制窗口中输入`BracketHighlighter`并选择安装
 4. 安装完成
 
+## [auto-save][1]自动保存修改
+
+
+
+[1]:https://packagecontrol.io/packages/auto-save
+
 [BracketHighlighter]: https://github.com/facelessuser/BracketHighlighter/tree/ST3
