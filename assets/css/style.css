@@ -3,6 +3,10 @@
 body {
   max-width: 650px;
   margin: 0 auto;
+  box-sizing: border-box;
+}
+* {
+  box-sizing: inherit;
 }
 .main {
   overflow: hidden;
@@ -36,9 +40,23 @@ body {
 /**
  * category导航
  **/
-.category-list li {
+.category-list li,
+.article-list li {
   margin-top: 20px;
 }
+.category {
+  float: right;
+  width: 150px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+}
+.category-list {
+  list-style: none;
+  margin: 10px 0;
+  padding: 0;
+}
+
 
 
 /**
