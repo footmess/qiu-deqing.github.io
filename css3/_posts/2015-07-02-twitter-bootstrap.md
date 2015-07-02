@@ -6,7 +6,7 @@ title: twitter bootstrap笔记
 
 ### dropdown
 
-下拉菜单[dropdown][1]三要素
+![][3]下拉菜单[dropdown][1]三要素
 
 - `position: relative;`的容器用于包含触发按钮和菜单内容(建议使用官方提供的`.dropdown`)
 - 设置`data-toggle="dropdown"`的触发按钮
@@ -14,21 +14,35 @@ title: twitter bootstrap笔记
 
 bootstrap会自动寻找到带有data-toggle属性的元素然后绑定点击事件, 为该元素父节点切换`open`类
 
-`dropdown-menu`为绝对定位
+`.dropdown-menu`为绝对定位
+
 
 ```
-.dropdown-menu {
-  display: none;
-}
+<!-- .dropdown 提供position: relaitve;为子菜单包含块 -->
+<div class="dropdown">
 
-.open > .dropdown-menu {
-  display: block;
-}
+  <!-- 菜单切换按钮 -->
+  <!-- data-toggle="dropdown" Bootstrap寻找这个属性,值的元素, 绑定点击时间,为父元素 -->
+  <!-- 切换.open, 控制子菜单显示 -->
+  <button type="button" data-toggle="dropdown" class="btn btn-default">
+    Dropdown
+    <span class="caret"></span>
+  </button>
+
+  <!-- .dropdown-menu 样式和菜单控制必备 -->
+  <ul class="dropdown-menu">
+    <li><a href="">1</a></li>
+    <li><a href="">2</a></li>
+    <li><a href="">3</a></li>
+  </ul>
+</div>
+
 ```
+
 
 ### navbar
 
-页面导航栏[navbar][2]通常用作整个页面或者网站的导航, 根据屏幕自适应, 以下是要素:
+![][4]页面导航栏[navbar][2]通常用作整个页面或者网站的导航, 根据屏幕自适应, 以下是要素:
 
 - 导航栏容器设置`.navbar`, 通常选`<nav>`元素作为导航栏容器
 - 一个导航栏头部`.navbar-header`包含始终显示的站点主要信息和窄屏幕下导航栏切换按钮
@@ -140,6 +154,7 @@ bootstrap会自动寻找到带有data-toggle属性的元素然后绑定点击事
 
 ```
 
-
-[2]:http://getbootstrap.com/components/#navbar
+[4]: https://cloud.githubusercontent.com/assets/5894015/8481115/007b0234-2114-11e5-8e5c-f0e92f7c30a3.png
+[3]: https://cloud.githubusercontent.com/assets/5894015/8481098/e73adf56-2113-11e5-8fc4-c979eacd70ba.png
+[2]: http://getbootstrap.com/components/#navbar
 [1]: http://getbootstrap.com/components/#dropdowns
