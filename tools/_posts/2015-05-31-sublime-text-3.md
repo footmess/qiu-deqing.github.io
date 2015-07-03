@@ -10,6 +10,8 @@ sublime text3下载地址：[http://www.sublimetext.com/3][2]本文所有操作�
 [2]: http://www.sublimetext.com/3
 [1]: http://docs.sublimetext.info/en/latest/index.html
 
+[快捷键集合][01]
+
 ## 安装
 
 - 官网下载`.dmg`文件
@@ -445,6 +447,7 @@ sublime-autoprefixer只对CSS起作用，不处理Sass或者LESS之类的预处�
 
 
 
+[01]: https://gist.github.com/eteanga/1736542
 [1]:https://packagecontrol.io/packages/auto-save
 
 [BracketHighlighter]: https://github.com/facelessuser/BracketHighlighter/tree/ST3
