@@ -54,6 +54,9 @@ body {
   padding: 0;
 }
 
+.article-list a {
+  line-height: 1.4;
+}
 
 
 /**
