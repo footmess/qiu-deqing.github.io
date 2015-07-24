@@ -2,6 +2,14 @@
 title: 操作系统常见操作
 ---
 
+## mac工具软件
+
+- http://support.alfredapp.com/
+- http://manytricks.com/moom/
+
+## 文本对比工具
+
+- http://www.scootersoftware.com/v4help/index.html?using_text_merge.html
 
 ## linux为文件创建软链接(快捷方式)
 
