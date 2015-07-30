@@ -449,8 +449,11 @@ sublime-autoprefixer只对CSS起作用，不处理Sass或者LESS之类的预处�
 
 在配置文件中加上： `"save_on_focus_lost": true` 这样当前文档失去焦点时会自动保存
 
+## [quoteHTML][02]将HTML拼接为js字符串
 
 
+
+[02]: https://packagecontrol.io/packages/QuoteHTML
 [01]: https://gist.github.com/eteanga/1736542
 [1]:https://packagecontrol.io/packages/auto-save
 

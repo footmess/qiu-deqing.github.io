@@ -1,6 +1,6 @@
 ---
 layout: default
-title: HTML5
+title: 好友博客
 
 ---
 
