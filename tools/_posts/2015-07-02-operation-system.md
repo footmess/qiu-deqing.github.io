@@ -5,6 +5,19 @@ title: 操作系统常见操作
 [1]: ed2k://|file|cn_windows_7_ultimate_with_sp1_x64_dvd_u_677408.iso|3420557312|B58548681854236C7939003B583A8078|/
 [2]: http://ftp-idc.pconline.com.cn/6340a847d4c3bd4591696b047a7411f0/5100000046556988845/uiso9_cn/pub/download/201010/maldner.exe
 [3]: https://cloud.githubusercontent.com/assets/5894015/9020973/5d737118-385e-11e5-8da3-66f1db17cdf0.jpg
+[4]:
+
+## mac工具软件,设置
+
+1. 全键盘模式: System Preferences --> Keyboard --> Shortcuts --> All controls
+2. 快速锁定屏幕:
+  1. 快捷键: `option + Cmd + Power`
+  2. 鼠标屏幕角事件: System Preferences -> Desktop & Screen Saver -> Screen Saver -> Hot Corners... 在需要定义事件的角选择: Put Display to Sleep
+3. 比Tab + Cmd更方便的程序切换方法: [Manico][http://manico.im/]将程序编号option + key即可快速切换
+
+
+- http://support.alfredapp.com/
+- http://manytricks.com/moom/
 
 ## 如何使用U盘重装win7
 
@@ -62,10 +75,6 @@ U盘文件格式不对, 应该格式化为exFAT, 步骤
 
 完成之后就可以复制了
 
-## mac工具软件
-
-- http://support.alfredapp.com/
-- http://manytricks.com/moom/
 
 ## 文本对比工具
 
