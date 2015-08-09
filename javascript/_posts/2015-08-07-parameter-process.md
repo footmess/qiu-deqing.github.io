@@ -180,7 +180,7 @@ var userManager = {
 
     // 邮箱规则测试只是用来举例
     var email = userInfo.email;
-    if (!email || email.search(/\.com$/) === -1) {
+    if (!email || !/\.com$/.test(email)) {
       infoStatus.ok = false;
       infoStatus.details.push({
         field: 'email',
@@ -229,7 +229,7 @@ onFormSubmit: function (e) {
 
   // 邮箱规则测试只是用来举例
   var email = userInfo.email;
-  if (!email || email.search(/\.com$/) === -1) {
+  if (!email || !/\.com$/.test(email)) {
     alert('电子邮箱不符合规则');
     return;
   }
@@ -340,7 +340,7 @@ var userManager = {
 
     // 邮箱规则测试只是用来举例
     var email = userInfo.email;
-    if (!email || email.search(/\.com$/) === -1) {
+    if (!email || !/\.com$/.test(email)) {
       infoStatus.ok = false;
       infoStatus.details.push({
         field: 'email',
