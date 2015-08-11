@@ -5,7 +5,8 @@ title: 操作系统常见操作
 [1]: ed2k://|file|cn_windows_7_ultimate_with_sp1_x64_dvd_u_677408.iso|3420557312|B58548681854236C7939003B583A8078|/
 [2]: http://ftp-idc.pconline.com.cn/6340a847d4c3bd4591696b047a7411f0/5100000046556988845/uiso9_cn/pub/download/201010/maldner.exe
 [3]: https://cloud.githubusercontent.com/assets/5894015/9020973/5d737118-385e-11e5-8da3-66f1db17cdf0.jpg
-[4]:
+[4]: http://www.irradiatedsoftware.com/sizeup/
+[5]: http://manytricks.com/moom/
 
 ## mac工具软件,设置
 
@@ -15,9 +16,17 @@ title: 操作系统常见操作
   2. 鼠标屏幕角事件: System Preferences -> Desktop & Screen Saver -> Screen Saver -> Hot Corners... 在需要定义事件的角选择: Put Display to Sleep
 3. 比Tab + Cmd更方便的程序切换方法: [Manico][http://manico.im/]将程序编号option + key即可快速切换
 
+### 调整窗口位置工具
+
+1. [sizeup][4]: 通过快捷键调整窗口位置
+2. [moom][5]: 鼠标移入右上角按钮处弹出调整窗口选项
+
 
 - http://support.alfredapp.com/
-- http://manytricks.com/moom/
+
+## 联想电脑输入文字时光标乱跳
+
+触摸板太灵活,去官网下载对应电脑触摸板驱动,设置灵敏度
 
 ## 如何使用U盘重装win7
 
