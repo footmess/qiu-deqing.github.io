@@ -89,6 +89,12 @@ U盘文件格式不对, 应该格式化为exFAT, 步骤
 
 - http://www.scootersoftware.com/v4help/index.html?using_text_merge.html
 
+## linux删除文件夹命令
+
+```
+rm -rf dir
+```
+
 ## linux为文件创建软链接(快捷方式)
 
 ```
