@@ -86,7 +86,93 @@ image.body.velocity.x = 150;
 1. `game.physics.enable(image, Phaser.Physics.ARCADE)`为image添加一个Physics.Arcade.Body对象body, 用于表示对象的运动信息, Phaser.Physics.ARCADE根据它控制对象运动
 2. `image.body.velocity.x = 150;`修改对象的physics body属性从而控制对象移动.
 
-[Phaser.Physics APi][7], [P]
+[Phaser.Physics APi][7]
+
+
+### 图片自动向鼠标或最近touch位置移动
+
+```
+var game = new Phaser.Game(800, 600, Phaser.AUTO, '', {
+  preload: preload,
+  create: create,
+  update: update,
+  render: render
+});
+function preload() {
+  game.load.image('phaser', '../assets/sprites/phaser.png');
+}
+var sprite;
+
+function create() {
+  console.log(game.physics.arcade)
+  game.physics.startSystem(Phaser.Physics.ARCADE);
+  console.log(game.physics.arcade)
+
+  sprite = game.add.sprite(game.world.centerX, game.world.centerY, 'phaser');
+  sprite.anchor.set(0.5);
+
+  game.physics.arcade.enable(sprite);
+}
+
+function update() {
+  if (game.physics.arcade.distanceToPointer(sprite, game.input.activePointer) > 8) {
+    game.physics.arcade.moveToPointer(sprite, 300);
+  }
+  else {
+    sprite.body.velocity.set(0);
+  }
+}
+
+function render() {
+  game.debug.inputInfo(32, 32);
+}
+```
+
+创建game传递的state对象增加了两个方法, 可以查看Phaser.State查看详细信息,概括如下:
+1. `update`: 游戏循环时系统执行debug, Physics, plugins之后调用, 通常在这里添加游戏处理逻辑
+2. `render`: 游戏每一轮渲染完成之后调用, 通常在这里添加额外需要的样式效果
+
+create执行操作主要如下
+1. `game.physics.startSystem(Phaser.Physics.ARCADE)`: 新建一个Physics系统并应用, 由于系统默认创建了Arcade系统, 再次调用这个函数会reset系统
+2. 居中显示图片
+3. `game.physics.arcade.enable(sprite)`: 为sprite创建一个Arcade Physics body用于描述运动所需信息
+
+update主要操作如下:
+
+判断图片与`activePointer`的距离
+1. 如果大于8, 向activePointer位置移动
+2. 如果小于8, 设置sprite移动速度为0
+
+render使用`game.debug.inputInfo(32, 32)`显示调试信息
+
+
+### 显示文字
+
+```
+var text = '- phaser -\n with a sprinkle of \n pixi dust.';
+var style = {
+  font: '65px Arial',
+  fill: '#f04',
+  align: 'center'
+};
+
+var t = game.add.text(game.world.centerX - 300, 0, text, style);
+```
+
+直接添加文字即可. `t.text = newText;`可修改文字内容
+
+### 为元素实现简单动画
+
+```
+function create() {
+  var sprite = game.add.sprite(-500, 0, 'einstein');
+  var tween = game.add.tween(sprite);
+  tween.to({
+    x: 600
+  }, 6000);
+  tween.start();
+}
+```
 
 [7]: http://phaser.io/docs/2.4.2/Phaser.Physics.html
 [6]: http://phaser.io/docs/2.4.2/Phaser.Text.html
