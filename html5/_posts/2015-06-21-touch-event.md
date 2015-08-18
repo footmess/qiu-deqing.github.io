@@ -33,12 +33,15 @@ Touch对象用于描述触点与触摸屏的一个接触点，具有以下属性
 
 TouchEvent对象用描述touch事件，包含以下属性：
 
-- `altKey`: 事件发生时alt键是否按下
+- `touches`: 所有与屏幕接触的触点
 - `changedTouches: `touchstart`时包含刚与触摸屏接触的触点；`touchemove`时包含上次事件后移动的触点； `touchend`和`touchcancel`时包含离开触摸屏的触点
+- `targetTouches`: 触点接触时target为本元素的所有触点
+- `altKey`: 事件发生时alt键是否按下
 - `ctrlKey`: 事件发生时ctrl 键是否按下
 - `metaKey`: 事件发生时meta键是否按下
 - `shiftKey`: 事件发生时shift键是否按下
-- `targetTouches`: 触点接触时target为本元素的所有触点
+
+[touches, changedTouch, targetTouches在线demo][9]
 
 ### 与鼠标事件的关系
 
@@ -97,6 +100,7 @@ document.addEventListener('touchend', function (event) {
 - [https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away?hl=en][8]
 
 
+[9]: http://qiudeqing.com/demo/html5/touch.html
 [8]: https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away?hl=en
 [7]: http://blog.mobiscroll.com/working-with-touch-events/
 [6]: http://www.slideshare.net/redux/getting-touchy-introduction-to-touch-and-pointer-events-jquery-europe-2014-vienna-28022014
