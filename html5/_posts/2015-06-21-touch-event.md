@@ -4,6 +4,7 @@ title: touch 事件
 
 - [http://www.w3.org/TR/touch-events/][4]
 - [Getting touchy - Introduction to touch (and pointer) events / jQuery Europe 2014][6]
+- [http://www.html5rocks.com/en/mobile/touch/][11]
 
 
 ## 事件类型
@@ -48,6 +49,83 @@ TouchEvent对象用描述touch事件，包含以下属性：
 用户代理可能同时发送touch事件和鼠标事件。如果用户代理同时发送两种事件，`touchstart`事件必须在所有鼠标事件之前发送。在`touchstart`和`touchmove`监听器中如果调用了`preventDefault`方法，用户代理不应该再发送任何的鼠标事件。
 
 如果用户代理将touch事件解析为鼠标事件，那它必须在`touchend`位置按顺序发送`mousemove`,`mousedown`,`mouseup`,`click`事件。
+
+## 最佳实践
+
+### 阻止缩放
+
+在viewpoint设置中阻止缩放
+
+```
+<meta name="viewport"
+  content="width=device-width, initial-scale=1.0, user-scalable=no">
+```
+
+### 阻止滚动
+
+```
+document.body.addEventListener('touchmove', function (e) {
+  e.preventDefault();
+}, false);
+```
+
+### 合理渲染
+
+touch事件经常需要处理多个触点, 渲染时使用requestAnimationFrame分别处理每一个触点能提高用户体验.
+
+```
+var touches = [];
+canvas.addEventListener('touchmove', function (e) {
+  touches = e.touches;
+
+  requestAnimationFrame(render);
+}, false);
+
+function render() {
+  if (touches.length) {
+    // do some work
+    touches.pop();
+    requestAnimationFrame(render);
+  }
+}
+```
+
+### 合理使用targetTouches和changedTouches
+
+`event.touches`是所有与屏幕接触的触点.
+
+## 单指touch拖拽元素
+
+```
+<div id="d2">
+  <style>
+  #d2 .target {
+    display: inline-block;
+    padding: 20px;
+    background: #ddd;
+    border: 1px solid #000;
+  }
+  #d2 .fixed {
+    position: fixed;
+  }
+  </style>
+  <span class="target">手指touch, 然后移动, 元素将跟随</span>
+  <script>
+  var target = document.querySelector('#d2 .target');
+  target.addEventListener('touchmove', function (e) {
+    if (event.targetTouches.length == 1) {
+      e.preventDefault();
+      var touch = event.targetTouches[0];
+      target.style.left = (touch.pageX - 50) + 'px';
+      target.style.top = (touch.pageY - 50)+ 'px';
+      target.classList.add('fixed');
+    }
+  }, false);
+  </script>
+</div>
+```
+
+[在线demo][10]
 
 
 ## 如何处理手指在触摸屏上的滑动(swipe)事件
@@ -100,6 +178,8 @@ document.addEventListener('touchend', function (event) {
 - [https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away?hl=en][8]
 
 
+[11]: http://www.html5rocks.com/en/mobile/touch/
+[10]: http://qiudeqing.com/demo/html5/touch.html#d2
 [9]: http://qiudeqing.com/demo/html5/touch.html
 [8]: https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away?hl=en
 [7]: http://blog.mobiscroll.com/working-with-touch-events/
