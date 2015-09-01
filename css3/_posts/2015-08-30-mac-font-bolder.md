@@ -12,7 +12,7 @@ title: mac下某些字比设置的粗
 给对应元素设置以下属性即可恢复正常:
 
 ```
-span {
+body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
