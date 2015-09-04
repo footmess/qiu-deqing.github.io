@@ -8,6 +8,11 @@ title: 操作系统常见操作
 [4]: http://www.irradiatedsoftware.com/sizeup/
 [5]: http://manytricks.com/moom/
 
+
+## mac下VMware fusion虚拟机全屏切换
+
+`Cmd + ctrl + f`
+
 ## mac工具软件,设置
 
 1. 全键盘模式: System Preferences --> Keyboard --> Shortcuts --> All controls
