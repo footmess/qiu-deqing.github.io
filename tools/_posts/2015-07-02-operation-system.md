@@ -9,7 +9,7 @@ title: 操作系统常见操作
 [5]: http://manytricks.com/moom/
 
 
-## mac下VMware fusion虚拟机全屏切换
+## mac程序全屏切换快捷键
 
 `Cmd + ctrl + f`
 
