@@ -23,6 +23,18 @@ mvn archetype:generate -DgroupId=com.mkyong
   -DinteractiveMode=false
 ```
 
+这里可能会卡在`[INFO] Generating project in Batch mode`消息之后, 在命令后面加上`-X`参数可以查看详细信息.可以看到程序停在
+
+```
+[DEBUG] Searching for remote catalog: http://repo.maven.apache.org/maven2/archetype-catalog.xml
+```
+
+这个文件比较大, 如果网络不好那就一直卡住了. [参考解决办法][4]:
+
+1. 用迅雷或者浏览器下载文件到本地.
+2. 把`archetype-catalog.xml`复制到setting设置的本地仓库`\org\apache\maven\archetype\archetype-catalog\2.2`下
+3. 在之前创建项目的命令行添加`-DarchetypeCatalog=local`即可读取本地文件进行创建
+
 以上命令执行完成后创建了名为`CounterWebApp`的web项目, 具有了[基于Maven的标准web目录结构][2]如下:
 
 ```
@@ -213,6 +225,7 @@ mvn archetype:generate -DgroupId=com.mkyong
 2. 配置eclipse部署到web 容器
 3. 前面添加了maven tomcat plugin, 可以直接运行`mvn tomcat7:run`启动一个本项目的tomcat,查看效果,非常方便,开发阶段推荐
 
+[4]: http://www.cnblogs.com/wardensky/p/4513372.html
 [3]: https://github.com/qiu-deqing/CounterWebApp
 [2]: http://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html
 [1]: http://www.mkyong.com/maven/how-to-create-a-web-application-project-with-maven/

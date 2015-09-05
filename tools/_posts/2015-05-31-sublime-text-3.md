@@ -250,7 +250,7 @@ sublime text3下载地址：[http://www.sublimetext.com/3](http://www.sublimetex
 
 
 
-## Package Control
+## Package Control插件管理
 
 [Package Control][]是Sublime Text的包管理器，可以通过它安装[2000多个package][]。安装后的package将自动更新。基本上大部分工具通过自动和手动都可以完成安装。
 
@@ -279,6 +279,9 @@ sublime text3下载地址：[http://www.sublimetext.com/3](http://www.sublimetex
 [Package Control.sublime-package]: https://sublime.wbond.net/Package%20Control.sublime-package
 
 
+### 卸载已安装的插件
+
+如果是通过package control安装的, 快捷键`Cmd + shift + p`打开面板搜索`Package Control: Remove Package`然后选择需要卸载的插件
 
 ## Emmet
 
