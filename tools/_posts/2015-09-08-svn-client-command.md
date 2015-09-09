@@ -29,3 +29,13 @@ svn status PATH
 ```
 
 `svn help status`查看详细帮助
+
+
+## svn add: 添加文件到版本控制
+
+要提交一个文件到服务器仓库需要两个步骤:
+
+1. svn add将文件添加到版本控制
+2. svn commit将文件提交到服务器
+
+
