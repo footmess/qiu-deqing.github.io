@@ -39,3 +39,31 @@ svn status PATH
 2. svn commit将文件提交到服务器
 
 
+## svn 设置ignore列表
+
+设置ignore列表需要使用
+
+```
+svn propset svn:ignore RULELIST DIR
+```
+
+其中
+
+- RULELIST 是需要ignore文件的规则列表
+- DIR 是忽略文件的目录, 如果在项目根目录下, 通常值为`.`
+
+例如我们在项目根目录下设置`node_modules`目录为ignore:
+
+```
+svn propset svn:ignore "node_modules" .
+```
+
+设置好规则之后commit到服务器仓库即可
+
+### 指定文件为ignore规则
+
+如果项目中已经有了git的`.gitignore`文件, 可以指定它为规则
+
+```
+svn propset svn:ignore -F .gitignore .
+```
