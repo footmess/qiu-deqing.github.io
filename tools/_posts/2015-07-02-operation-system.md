@@ -8,6 +8,25 @@ title: 操作系统常见操作
 [4]: http://www.irradiatedsoftware.com/sizeup/
 [5]: http://manytricks.com/moom/
 
+## mac查看端口占用程序并关闭
+
+```
+Failed to listen on 127.0.0.1:9001 (reason: Address already in use)
+```
+
+本机启动服务器时报错, 需要找出程序pid然后关闭. 方法如下:
+
+找出程序
+
+```
+lsof -i :9001
+```
+
+关闭程序
+
+```
+kill -9 <PID>
+```
 
 ## mac程序全屏切换快捷键
 
