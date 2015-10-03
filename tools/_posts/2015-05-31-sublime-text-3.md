@@ -283,6 +283,10 @@ sublime text3下载地址：[http://www.sublimetext.com/3](http://www.sublimetex
 
 如果是通过package control安装的, 快捷键`Cmd + shift + p`打开面板搜索`Package Control: Remove Package`然后选择需要卸载的插件
 
+## SidebarEnhancements
+
+为左侧sidebar增加功能
+
 ## Emmet
 
 [Emmet][]通过简洁的语法描述html内容，提高工作效率
