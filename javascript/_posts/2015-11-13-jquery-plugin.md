@@ -1,5 +1,5 @@
 ---
-jquery 插件
+title: jquery 插件
 ---
 
 [jQuery官方插件教程][1]
