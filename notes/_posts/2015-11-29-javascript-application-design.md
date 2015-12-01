@@ -23,6 +23,18 @@ title: JavaScript Application Design: A Build First Approach 1st Edition
 
 ## 1.3 构建过程
 
+完成本书第一部分的收获
+
+- 自动化编译, 压缩, 测试等重复性任务
+- 构建一个`icon spritesheet`减小HTTP请求.
+- 一键发布
+
+## 1.4 Handing application complexity and design
+
+- 模块化: 将程序分解为组件
+
+# 2 Composing build tasks and flows
+
 
 
 [2]: https://ponyfoo.com/
