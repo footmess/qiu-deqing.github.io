@@ -4,6 +4,8 @@ title: browserify相关
 
 [browserify][1]是一个将CommonJS模块编译为浏览器模块的工具.
 
+browserify使用的模块系统与Nodejs相同, 所以通过npm发布的Nodejs模块都可以通过browserify编译到浏览器环境下使用.
+
 # 安装
 
 ```
@@ -36,4 +38,5 @@ index.html:
 <script src="bundle.js"></script>
 ```
 
+[2]: https://github.com/substack/browserify-handbook
 [1]: http://browserify.org/
