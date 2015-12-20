@@ -6,6 +6,8 @@ title: 响应式web
 
 在任意设备上灵活展示页面, 最小化水平滚动和缩放
 
+## <meta>标签
+
 ## 图片
 
 ### iconfont
@@ -43,5 +45,57 @@ height: auto;
   backgrond-size: 100% 100%;
   ```
 
+## Sass mixin方便media query
+
+- 同一个地方维护PC和无线样式, 方便查找, 维护.
+- 抽象名字更方便理解
+- 只需要在_mediaqueries.scss修改断点
+
+_mediaqueries.scss
+
+```
+@mixin mq($point) {
+  @if $point == sm {
+    @media (min-width: 20em) { @content; }
+  }
+  @else if $point == md {
+    @media (min-width: 40em) { @content; }
+  }
+  @else if $point == lg  {
+    @media (min-width: 48em) { @content; }
+  }
+}
+```
+
+styles.scss
+
+```
+@import "mediaqueries";
+
+header {
+  width: 50%;
+  background: red;
+
+  @include mq(sm) {
+    width: 100%;
+    background-color: blue;
+  }
+}
+
+```
+
+styles.css
+
+```
+header {
+  width: 50%;
+}
+
+@media (min-width: 40em) {
+  header {
+    header: 100%;
+  }
+}
+```
 
 [1]: https://davidwalsh.name/responsive-images
