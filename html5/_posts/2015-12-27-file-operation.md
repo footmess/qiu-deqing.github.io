@@ -2,6 +2,45 @@
 title: 读取本地文件
 ---
 
+# Blob
+
+`Blob`表示数据, 通过`Blob()`构造函数新建, 或者使用`slice()`获取得到. `File`对象继承Blob.
+
+
+## new Blob(array, options)
+
+构造函数创建Blob对象, blob包含参数数组内的数据.
+
+- array是包含`ArrayBuffer`, `ArrayBufferView`, `Blob`, `DOMString`对象的数组, 数组元素会被放到最终的Blob对象中
+- options是可选的`BlobPropertyBag`用于指定如下属性:
+    + `type`: 默认值为'', 表示blob的MIME type
+    + `endings`: 默认值为"transparent"表示字符串中的`\n`将保持不变, "native"将根据操作系统文件系统进行转行
+
+## blob.size
+
+只读, blob以byte为单位的大小
+
+## blob.type
+
+只读, blob的MIME 类型, 如果类型未知, 返回空
+
+## blob.slice([start [, end [, contentType]]])
+
+以[start, end)创建一个新的Blob对象并返回, start, end为blob内byte索引, contentType为新blob的MIME type
+
+# File
+
+继承自Blob, 添加了文件相关的属性
+
+## file.lastModifiedDate
+
+文件的最后修改时间
+
+## file.name
+
+文件的名字
+
+
 # FileReader
 
 `FileReader`提供一系列用于读取`File`或者`Blob`对象的方法. 这些方法都是异步的.
@@ -60,7 +99,7 @@ reader.onload = function (e) {
 reader.readAsArrayBuffer(file)
 ```
 
-## about()
+## abort()
 
 停止读操作
 
