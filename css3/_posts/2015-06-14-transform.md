@@ -10,7 +10,7 @@ title: transform
 
 使用`transform`可以对元素视图进行移动，旋转，缩放，skew。
 
-设置`none`意外的取值时，会创建一个[stacking context]，这个上下文会成为内部`position: fixed`元素的包含块。
+设置`none`以外的取值时，会创建一个[stacking context]，这个上下文会成为内部`position: fixed`元素的包含块。
 
 百分数长度计算依据为元素吃尺寸.
 
@@ -71,6 +71,24 @@ deg为正时将元素顺时针旋转对应角度，为负时逆时针旋转对�
 
 ## 3D  transform
 
+尽量使用foo3d()版本的函数以减少hardware compositing以提高性能(rotate3d太难计算了[http://stackoverflow.com/questions/15207351/rotate3d-shorthand][10])
+
+3d transform需要建立一个视角(perspective), 有以下两种方式建立视角:
+
+- transform元素的父元素上使用`perspective`属性
+- transform元素使用`perspective()`函数
+
+两种方法的区别是**父元素上使用perspective属性创建的节点为所有子节点共用**, 单独在元素
+上使用的`perspective()`函数为每个元素创建视角
+
+想象一个金字塔位于z平面和观察者之间, 金字塔的底部平行于z平面且位于坐标0处. `perspective`的值表示金字塔顶部到
+z平面的距离, 类似于摄像机镜头的位置, 它的值越大, 金字塔越尖, 元素变换看起来就越不明显, 通常**700到1000**被认为是
+正常距离, 可以用来作为初始值开始调整.
+
+`perspective-origin`用于控制视点的位置[MDN perspective-origin demo][7]
+
+
+
 ### rotateX(deg)
 
 以x轴方向为轴旋转元素
@@ -96,8 +114,15 @@ deg为正时将元素顺时针旋转对应角度，为负时逆时针旋转对�
 - [https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function][3]
 - [http://learn.shayhowe.com/advanced-html-css/css-transforms/][4]
 - [http://css3files.com/transform/][5]
+- [MDN很好的3d transform例子][7]
+- [https://24ways.org/2010/intro-to-css-3d-transforms/][8]
+- [http://www.eleqtriq.com/2010/05/understanding-css-3d-transforms/][9]
 
 
+[10]: http://stackoverflow.com/questions/15207351/rotate3d-shorthand
+[9]: http://www.eleqtriq.com/2010/05/understanding-css-3d-transforms/
+[8]: https://24ways.org/2010/intro-to-css-3d-transforms/
+[7]: https://developer.mozilla.org/en-US/docs/Web/CSS/perspective-origin
 [6]: https://www.webkit.org/blog-files/3d-transforms/transform-style.html
 [5]: http://css3files.com/transform/
 [4]: http://learn.shayhowe.com/advanced-html-css/css-transforms/
