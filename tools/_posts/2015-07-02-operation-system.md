@@ -2,6 +2,12 @@
 title: 操作系统常见操作
 ---
 
+# mac在finder中打开终端所在目录命令
+
+```
+open .
+```
+
 [1]: ed2k://|file|cn_windows_7_ultimate_with_sp1_x64_dvd_u_677408.iso|3420557312|B58548681854236C7939003B583A8078|/
 [2]: http://ftp-idc.pconline.com.cn/6340a847d4c3bd4591696b047a7411f0/5100000046556988845/uiso9_cn/pub/download/201010/maldner.exe
 [3]: https://cloud.githubusercontent.com/assets/5894015/9020973/5d737118-385e-11e5-8da3-66f1db17cdf0.jpg

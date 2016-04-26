@@ -4,6 +4,44 @@ title: 好用的JavaScript和css库, 组件, 插件
 
 带**√**表示使用过
 
+# [tabulouse-js][11]: jQuery插件, tab功能
+
+[11]: https://github.com/aarondo/tabulous.js
+
+# [background-blur][10]: jQuery插件, 背景模糊效果
+
+兼容性:
+
+- Chrome
+- Firefox
+- Safari and Safari Mobile (iOS)
+- IE6, IE7, IE8 - blur is supported without animation (need to omit "duration" property in those browsers to make this plugin work, the problem will get fixed when Velocity.js issue gets fixed)
+- IE9, IE10, IE11
+- Android browsers
+
+[10]: https://github.com/msurguy/background-blur
+
+#[nanobar][9]: 轻量级进度条
+
+兼容性: IE7+
+
+[9]: https://github.com/jacoborus/nanobar/
+
+# [pagination.js][8]: jQuery插件, 翻页插件
+
+兼容性: IE8+
+
+功能特显:
+
+- 支持前端翻页
+- 自动请求接口获取数据
+- 支持跳转输入框
+- 支持mini风格
+- 支持内容少于一页隐藏组件
+- 支持多种事件
+
+[8]: https://github.com/superRaytin/paginationjs
+
 # [icheck][7]: jQuery插件, checkbox和radio美化
 
 [7]: https://github.com/fronteed/iCheck/
