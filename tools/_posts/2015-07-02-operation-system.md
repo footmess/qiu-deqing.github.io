@@ -2,6 +2,12 @@
 title: 操作系统常见操作
 ---
 
+# msdn我告诉你
+
+[http://msdn.itellyou.cn/][6]下载各种资源, 如纯净版windows操作系统
+
+[6]: http://msdn.itellyou.cn/
+
 # mac在finder中打开终端所在目录命令
 
 ```
