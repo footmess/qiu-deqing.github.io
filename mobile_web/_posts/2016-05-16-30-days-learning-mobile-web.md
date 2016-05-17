@@ -47,8 +47,105 @@ App内核架构模式让你更好的关注性能, 瞬时加载, 方便更新
 
 我们创建天气预报app, 核心组件包含以下内容:
 
--
+- 包含标题, 增加, 刷新按钮的头部
+- 预报卡片容器
+- 预报卡片模板
+- 增加城市的对话框
+- 加载指示
 
+在设计复杂app的时候, 不是初始化所必须的内容可以稍后请求然后缓存, 为后续使用加速. 比如我们可以将新建城市对话框延迟到App启动之后并且有空余时间的时候加载.
+
+## 实现app内核
+
+推荐使用Web Starter Kit作为项目起点, 但是我们的项目将尽可能简单以几种在Progressive Web App本身.
+
+可以[下载本教程app完整代码][5]获取项目所必须的资源文件.
+
+- 创建App内核所需的HTML
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no">
+    <title>Weather App</title>
+</head>
+<body>
+
+<header class="header">
+    <h1 class="header__title">Weather App</h1>
+    <button id="butRefresh" class="headerButton"></button>
+    <button id="butAdd" class="headerButton"></button>
+</header>
+
+<main class="main" hidden></main>
+
+<div class="dialog-container">
+</div>
+
+<div class="loader">
+    <svg viewBox="0 0 32 32" width="32" height="32">
+        <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+    </svg>
+</div>
+
+</body>
+</html>
+```
+
+在上面的代码中`main`设置为`hidden`, 加载器设置为显示. 这样确保用户进入页面能清楚地知道内容正在加载.
+
+新建城市对话框和预报卡片的模板在`resources`目录下, 把它们复制到对应的地方即可.
+
+- 为核心UI组件添加样式
+
+# 第二天2016-05-17
+
+- 添加关键js代码
+
+关键代码包含以下内容:
+
+- `app`对象包含app所需的关键信息
+- 给所有按钮监听事件
+- 更新天气预报卡片的函数`app.updateForecastCard`
+- 从Firebase Public Weather API获取最新天气预报数据的函数`app.getForecases`
+- 循环卡片并调用`app.getForecast`以获取最新预报的函数`app.updateForecasts`
+- 用于方便测试的假数据`fakeForecast`
+
+## 快速加载
+
+Progressive Web App应该快速启动并且马上可用. 后端在输出app内核的时候, 应该根据用户所在IP请求对应城市的天气信息,
+包含在`initialWeatherForecast`中用于前端渲染, 这样用户就可以第一时间获取到真实数据
+
+将用户偏好设置使用IndexedDB这样的技术存储起来, 教程中使用`localStorage`, 实际项目中应该尽量避免使用, 因为它属于阻塞, 同步存储操作, 在有的设备上可能很慢, 影响用户体验.
+
+```
+app.saveSelectedCities = function () {
+var selectedCities = JSON.stringify(app.selectedCities)
+localStorage.selectedCities = selectedCities
+}
+```
+
+接下来添加启动代码以检查用户是否已经选择过城市, 并且渲染对应天气预报.
+
+```
+  app.selectedCities = localStorage.selectedCities
+  if (app.selectedCities) {
+    app.selectedCities = JSON.parse(app.selectedCities)
+    app.selectedCities.forEach(function (city) {
+      app.getForecast(city.key, city.label)
+    })
+  } else {
+    app.updateForecastCard(initialWeatherForecast)
+    app.selectedCities = [
+      {key: initialWeatherForecast.key, label: initialWeatherForecast.label}
+    ]
+    app.saveSelectedCities()
+  }
+```
+
+[5]: https://developers.google.com/web/fundamentals/getting-started/your-first-progressive-web-app/pwa-weather.zip
 [4]: https://developers.google.com/web/fundamentals/getting-started/your-first-progressive-web-app/step-01?hl=en
 [3]: https://developers.google.com/web/progressive-web-apps
 [2]: https://developers.google.com/web/fundamentals/getting-started/your-first-progressive-web-app/
