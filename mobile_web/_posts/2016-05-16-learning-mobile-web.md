@@ -2,10 +2,7 @@
 title: 无线端web开发学习
 ---
 
-记录30天无线web学习历程
 
-
-# 第一天2016-05-16
 
 谷歌搜索: **mobile web development**
 
@@ -100,7 +97,6 @@ App内核架构模式让你更好的关注性能, 瞬时加载, 方便更新
 
 - 为核心UI组件添加样式
 
-# 第二天2016-05-17
 
 - 添加关键js代码
 
@@ -145,6 +141,22 @@ localStorage.selectedCities = selectedCities
   }
 ```
 
+## 使用Service worker对app内核进行Pre-cache
+
+为了保证Progressive Web App快递, 可安装以实现在线, 离线, 低网速情况下可用. 我们需要使用service worker缓存app内核
+
+
+总结:
+
+**设计最小, 最快加载, 可缓存的app内核, 从服务器取数据渲染模板**
+
+
+
+支付宝无线端校验总结[http://am-team.github.io/amg/dev-exp-doc.html][6]
+
+
+
+[6]: http://am-team.github.io/amg/dev-exp-doc.html
 [5]: https://developers.google.com/web/fundamentals/getting-started/your-first-progressive-web-app/pwa-weather.zip
 [4]: https://developers.google.com/web/fundamentals/getting-started/your-first-progressive-web-app/step-01?hl=en
 [3]: https://developers.google.com/web/progressive-web-apps
