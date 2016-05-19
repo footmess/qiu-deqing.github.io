@@ -2,6 +2,12 @@
 title: 无线web页面开发调试
 ---
 
+# [Weinre][3]远程调试
+
+WEb Inspector REmote使用[webkit web inspector项目][2]提供的代码在电脑端浏览器为无线端页面提供开发工具. UC, 手淘, 微信页面调试都能够支持.
+
+[3]: https://people.apache.org/~pmuellr/weinre/docs/1.x/1.5.0/
+[2]: http://trac.webkit.org/wiki/WebInspector
 
 ## android手机使用chrome devTool远程调试页面
 
