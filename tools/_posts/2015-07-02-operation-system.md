@@ -2,6 +2,12 @@
 title: 操作系统常见操作
 ---
 
+# mac查看本机ip
+
+```
+ipconfig getifaddr en0
+```
+
 # msdn我告诉你
 
 [http://msdn.itellyou.cn/][6]下载各种资源, 如纯净版windows操作系统
