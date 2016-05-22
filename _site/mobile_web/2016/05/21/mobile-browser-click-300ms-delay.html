@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" id="blog">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>无线端浏览器click事件300ms延迟</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="icon" type="image/jpeg" href="http://7xio0w.com1.z0.glb.clouddn.com/avatar.jpg">
+
+</head>
+<body>
+
+  <div class="wrapper">
+
+
+    
+<header>
+  <ul class="page-nav">
+    <li><a href="/index.html">首页</a></li>
+    <li><a href="/article.html">文章</a></li>
+    <li><a href="/demo.html">Demo</a></li>
+    <li><a href="/outlink.html">好友</a></li>
+    <li><a href="/about.html">About</a></li>
+  </ul>
+
+
+    <div style="min-height: 64px;">
+      <script>
+  (function() {
+    var cx = '000120512111193585777:jcbgjxdhzuq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+    </div>
+</header>
+
+
+
+    <div class="markdown-body">
+      转载请注明出处: <a href="http://qiudeqing.com/mobile_web/2016/05/21/mobile-browser-click-300ms-delay.html">http://qiudeqing.com/mobile_web/2016/05/21/mobile-browser-click-300ms-delay.html</a>
+
+      <h1 id="section">起因</h1>
+
+<p>2007年苹果为了解决iPhone Safari访问PC页面的缩放问题, 提供了一个<strong>双击缩放</strong>功能.当用户第一次触摸屏幕的时候浏览器等待300ms才能判断用户是要点击(click)还是缩放(zoom),这就造成用户触摸屏幕到click事件触发存在300ms延迟.</p>
+
+<p>触摸屏幕事件流程如下:</p>
+
+<ol>
+  <li>touchstart</li>
+  <li>touchend</li>
+  <li>Wait 300ms in case of another tap</li>
+  <li>click</li>
+</ol>
+
+<p>受到这个延迟影响的场景有:</p>
+
+<ul>
+  <li>JavaScript监听的click事件</li>
+  <li>基于click的交互的元素, 例如链接, 表单元素</li>
+</ul>
+
+<p>随着iPhone的成功, 后续的无线浏览器复制了它的大部分操作习惯, 其中就包括双击缩放, 这也成为主流浏览器的一个功能.</p>
+
+<p>这300ms延迟在平时浏览网页不会带来严重问题, 但是对于高性能web app就是一个严重的问题, 响应式设计的流行也让双击缩放逐渐失去用武之地.</p>
+
+<p><a href="http://output.jsbin.com/ixibol/6">点击本页面测试click延迟</a></p>
+
+<h1 id="section-1">解决方案</h1>
+
+<p>各大浏览器厂商尝试去掉300ms延迟, 但是这对于Safari来说几乎不可能, 因为在Safari上双击还有其他浏览器没有的滚动功能. 以下是一些浏览器提供的解决方案:</p>
+
+<ul>
+  <li>
+    <p>取消禁止缩放页面的延迟<br />
+  双击是为了缩放页面, 在不能缩放的页面禁止延迟也就理所当然, 安卓版的Chrome, Opera, BlackBerry和Firefox在设置以下meta标签的页面中取消了延迟</p>
+
+    <p><code>
+  &lt;meta name="viewport" content="user-scalable=no"&gt;
+ </code></p>
+  </li>
+  <li>
+    <p>取消为无线设计页面的延迟<br />
+  考虑到禁止缩放会带来可用性和可访问性的问题, Chrome 32开始<a href="https://codereview.chromium.org/18850005/">取消viewport设置为width小于等于device-width页面两次敲击缩放功能</a>, Opera, UC9也都实现了这一功能, Firefox还没有实现.</p>
+
+    <p><code>
+  &lt;meta name="viewport" content="width=device-width"&gt;
+ </code></p>
+  </li>
+  <li>
+    <p>指针事件(Pointer Event)<br />
+  指针事件使用一套事件模型统一鼠标, 触屏, 笔触等所有输入事件, 其中引入的CSS属性<code>touch-action</code>将如何响应用户操作的决定权交给页面设计者, 这才是解决300ms延迟的最佳方案. 取值和含义如下:</p>
+
+    <ul>
+      <li>auto(默认): 有用户代理决定如何响应用户的行为(如滚动, 缩放等)</li>
+      <li>none: 对用户行为不触发任何反应</li>
+      <li>pan-x: 用户代理认为用户的触屏操作目的是水平滚动元素最近可水平滚动的祖先元素</li>
+      <li>pan-y: 用户代理认为用户的触屏操作目的是竖直滚动元素最近可竖直滚动的祖先元素</li>
+      <li>manipulation: 用户代理认为用户触屏操作只是为了滚动和连续缩放. <code>auto</code>所支持的其他行为都不在本规范范围内(规范还没有稳定, 使用时需要注意兼容性)</li>
+      <li>pan-left, pan-right, pan-up, pan-down: pan-x, pan-y的子集</li>
+    </ul>
+
+    <p><code>
+  html {
+      -ms-touch-action: manipulation;
+          touch-action: manipulation;
+  }
+ </code></p>
+  </li>
+  <li>
+    <p>监听touchend事件<br />
+  <code>touchend</code>不会有延迟, 感觉替代<code>click</code>完全可以, 但是存在一些问题:</p>
+
+    <ul>
+      <li>响应式页面在PC上需要依赖<code>click</code>事件, 同时监听两种事件会导致任务执行两次.</li>
+    </ul>
+
+    <p>在页面功能简单的时候可以采用这个方案, 如果复杂了就不好管理控制.</p>
+  </li>
+  <li>
+    <p>指针事件polyfill<br />
+  指针事件polyfill有以下代表:</p>
+
+    <ul>
+      <li><a href="https://github.com/jquery/PEP">jquery PEP</a></li>
+      <li>微软<a href="http://handjs.codeplex.com/">HandJS</a></li>
+      <li><a href="https://github.com/Rich-Harris">@Rich-Harris</a>的<a href="https://github.com/Rich-Harris/Points">Points</a></li>
+    </ul>
+
+    <p>这些polyfill最难的地方在于在飞IE浏览器中模拟<code>touch-action</code>, 由于浏览器会忽略不支持的CSS属性, 唯一能够检测开发者是否声明了<code>touch-action: none</code>的办法就是JavaScript请求并解析所有样式表. HandJS就是这样做的, 但是实现起来在性能上很难做好.</p>
+
+    <p>PEP通过判断标签上的<code>touch-action</code>属性, 相对来说会简单一些</p>
+
+    <p>对于开发者来说如果对指针事件感兴趣, 上面的polyfill就非常合适, 如果只是想寻找解决300ms延迟的方法, 上面的方案就over skill了. 因为他们都是资源密集型的方案. 接下来我们看看专门为了解决300ms而生的解决方案.</p>
+  </li>
+  <li>
+    <p>FastClick<br />
+  <a href="https://github.com/ftlabs/fastclick">FastClick</a>是专门为解决移动端浏览器300ms延迟而开发的轻量级库. 它检测到<code>touchend</code>时, 立即触发<code>click</code>时间, 并把浏览器之后触发的<code>click</code>事件阻止掉, 在不存在300ms的浏览器上它什么也不做. 目前来说FastClick是最简单实用的方案.</p>
+  </li>
+</ul>
+
+<h1 id="section-2">总结</h1>
+
+<p>结合前面的讨论个人采用以下方案</p>
+
+<ul>
+  <li>设置viewport<br />
+  <code>
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+ </code></li>
+  <li>设置<code>touch-action</code><br />
+  <code>
+  html {
+      -ms-touch-action: manipulation;
+          touch-action: manipulation;
+  }
+ </code></li>
+  <li>引入FastClick<br />
+  <code>
+  if ('addEventListener' in document) {
+      document.addEventListener('DOMContentLoaded', function() {
+          FastClick.attach(document.body);
+      }, false);
+  }
+ </code></li>
+</ul>
+
+<h1 id="section-3">参考资料</h1>
+
+<ul>
+  <li><a href="http://www.telerik.com/blogs/what-exactly-is.....-the-300ms-click-delay">http://www.telerik.com/blogs/what-exactly-is…..-the-300ms-click-delay</a></li>
+  <li><a href="https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away?hl=en">https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away?hl=en</a></li>
+  <li><a href="http://www.quirksmode.org/blog/archives/2014/04/suppressing_the.html">http://www.quirksmode.org/blog/archives/2014/04/suppressing_the.html</a></li>
+</ul>
+
+
+    </div>
+
+    <!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="/mobile_web/2016/05/21/mobile-browser-click-300ms-delay" data-title="无线端浏览器click事件300ms延迟" data-url="http://qiudeqing.com/mobile_web/2016/05/21/mobile-browser-click-300ms-delay.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qiudeqing"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+    
+
+<footer>
+  <ul class="page-nav">
+    <li class="github">
+      <a href="https://github.com/qiu-deqing">
+        <img height="58" src="https://cloud.githubusercontent.com/assets/5894015/9272138/ffaf6984-42b1-11e5-8b74-cef26c1e5129.png"></a>
+    </li>
+    <li class="stackoverflow">
+      <a href="http://stackoverflow.com/users/3004355/qiu-deqing">
+        <img src="http://stackoverflow.com/users/flair/3004355.png" width="208" height="58" alt="profile for qiu-deqing at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for qiu-deqing at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
+      </a>
+    </li>
+    <li><a href="http://weibo.com/u/2042986003">微博</a></li>
+  </ul>
+  <p>© 2015-- 邱德清</p>
+</footer>
+
+<div class="page-scroll-container"></div>
+
+<script src="/assets/js/dome.js"></script>
+<script>
+  (function (w) {
+    var doc = w.document;
+
+
+    // 类别导航高亮
+    var list = doc.querySelectorAll('.page-nav a');
+
+    // 获取当前页面第一个/和第二个/之间的内容(类别)
+    var pageCategory = location.pathname.split('/')[1];
+
+    [].forEach.call(list, function (navItem) {
+
+      // 获取每个导航链接的类别,与当前页面类别比较,确定是否高亮
+      var navCategory = navItem.pathname.split('/')[1];
+      if (navCategory === pageCategory) {
+        navItem.parentNode.classList.add('active');
+      }
+    });
+
+    // 页面导航
+    pageScroll.init({
+      container: '.page-scroll-container'
+    });
+  }(window));
+</script>
+
+  </div>
+
+
+
+
+  <!-- 百度统计 -->
+  <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?196ca8311083e8eb3b22232555273fa0";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</body>
+</html>

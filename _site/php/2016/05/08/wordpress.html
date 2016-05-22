@@ -4,14 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Mobile Web Development</title>
+  <title>wordpress</title>
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="icon" type="image/jpeg" href="http://7xio0w.com1.z0.glb.clouddn.com/avatar.jpg">
-  <meta name="baidu-site-verification" content="SAFwmBNbb7" />
+
 </head>
 <body>
 
-  
+  <div class="wrapper">
+
+
+    
 <header>
   <ul class="page-nav">
     <li><a href="/index.html">首页</a></li>
@@ -40,77 +43,63 @@
 </header>
 
 
-  <div class="content">
 
-  <div class="main">
+    <div class="markdown-body">
+      转载请注明出处: <a href="http://qiudeqing.com/php/2016/05/08/wordpress.html">http://qiudeqing.com/php/2016/05/08/wordpress.html</a>
+
+      <h1 id="macwordpress">mac本地安装WordPress</h1>
+
+<ol>
+  <li>本地安装MySQL, 配置好Apache, php</li>
+  <li>下载WordPress压缩包,解压到<code>DocumentRoot</code>, 通常为<code>/Library/WebServer/Documents</code></li>
+  <li>启动Apache, 浏览器访问<code>http://localhost/wordpress</code>自动跳转到安装页面</li>
+  <li>填写所需信息即可</li>
+</ol>
+
+<h1 id="wp-contentuploads201605">无法建立目录wp-content/uploads/2016/05。有没有上级目录的写权限</h1>
+
+<p>给WordPress目录添加读写权限, 命令进入到WordPress父目录执行以下命令</p>
+
+<pre><code>chmod 777 wordpress
+</code></pre>
+
+<h1 id="section">禁用谷歌字体</h1>
+
+<p>安装并启用<a href="https://wordpress.org/plugins/disable-google-fonts/">disable-google-fonts</a>插件</p>
+
+<h1 id="wordpress">如何安装WordPress插件</h1>
+
+<ul>
+  <li>方法一: 下载插件解压到<code>wp-content/plugins</code>目录下, 到后台插件列表就可以看见安装好了</li>
+  <li>方法二: 插件管理面板搜索, 安装, 需要填写服务器ftp账号密码</li>
+  <li>方法三: 下载插件到本地,点击上传安装</li>
+</ul>
+
+<h1 id="section-1">常用插件列表</h1>
+
+
+    </div>
+
+    <!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="/php/2016/05/08/wordpress" data-title="wordpress" data-url="http://qiudeqing.com/php/2016/05/08/wordpress.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qiudeqing"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
 
     
-    <div class="category">
-      <h2>类别</h2>
-      <ol class="category-list">
-        <li><a href="/article.html">全部类别</a></li>
-        
-        <li><a href="/html5/index.html">html5</a></li>
-        
-        <li><a href="/mobile_web/index.html">mobile_web</a></li>
-        
-        <li><a href="/tools/index.html">tools</a></li>
-        
-        <li><a href="/nodejs/index.html">nodejs</a></li>
-        
-        <li><a href="/css3/index.html">css3</a></li>
-        
-        <li><a href="/javascript/index.html">javascript</a></li>
-        
-        <li><a href="/animation/index.html">animation</a></li>
-        
-        <li><a href="/performance/index.html">performance</a></li>
-        
-        <li><a href="/java_web/index.html">java_web</a></li>
-        
-        <li><a href="/phaser/index.html">phaser</a></li>
-        
-        <li><a href="/php/index.html">php</a></li>
-        
-        <li><a href="/notes/index.html">notes</a></li>
-        
-        <li><a href="/android/index.html">android</a></li>
-        
-        <li><a href="/general/index.html">general</a></li>
-        
-      </ol>
-    </div>
-
-
-
-    <div class="article">
-      <h2>文章</h2>
-      <ol class="article-list">
-        
-        <li><a href="/mobile_web/2016/05/21/mobile-browser-click-300ms-delay.html">无线端浏览器click事件300ms延迟</a></li>
-        
-        <li><a href="/mobile_web/2016/05/16/learning-mobile-web.html">无线端web开发学习</a></li>
-        
-        <li><a href="/mobile_web/2015/11/04/mobile-web-debug.html">无线web页面开发调试</a></li>
-        
-        <li><a href="/mobile_web/2015/06/17/resources.html">移动端学习资料</a></li>
-        
-        <li><a href="/mobile_web/2015/05/22/responsive-toggle-menu.html">响应式切换菜单</a></li>
-        
-      </ol>
-    </div>
-
-
-  </div>
-
-  <div class="sidebar">
-
-  </div>
-</div>
-
-
-
-  
 
 <footer>
   <ul class="page-nav">
@@ -157,6 +146,8 @@
     });
   }(window));
 </script>
+
+  </div>
 
 
 

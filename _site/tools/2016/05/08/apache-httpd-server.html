@@ -4,14 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Mobile Web Development</title>
+  <title>Apache服务器</title>
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="icon" type="image/jpeg" href="http://7xio0w.com1.z0.glb.clouddn.com/avatar.jpg">
-  <meta name="baidu-site-verification" content="SAFwmBNbb7" />
+
 </head>
 <body>
 
-  
+  <div class="wrapper">
+
+
+    
 <header>
   <ul class="page-nav">
     <li><a href="/index.html">首页</a></li>
@@ -40,77 +43,65 @@
 </header>
 
 
-  <div class="content">
 
-  <div class="main">
+    <div class="markdown-body">
+      转载请注明出处: <a href="http://qiudeqing.com/tools/2016/05/08/apache-httpd-server.html">http://qiudeqing.com/tools/2016/05/08/apache-httpd-server.html</a>
+
+      <h1 id="section">虚拟主机</h1>
+
+<p>虚拟主机是指一个机器上运行多个网站(例如a.example.com和b.example.com). 虚拟主机</p>
+
+<h2 id="mac">mac配置虚拟主机</h2>
+
+<ol>
+  <li>绑定本机host: <code>127.0.0.1 qiu.localhost.com</code></li>
+  <li>修改Apache主配置文件<code>/private/etc/apache2/httpd.conf</code>, 去掉虚拟主机配置文件前面的注释符<br />
+ <code>
+ # Virtual hosts
+ Include /private/etc/apache2/extra/httpd-vhosts.conf
+</code></li>
+  <li>新建文件<code>/Library/WebServer/Documents/qiu/index.php</code>内容如下<br />
+ <code>
+ &lt;?php phpinfo();
+</code></li>
+  <li>在虚拟主机配置文件<code>/private/etc/apache2/extra/httpd-vhosts.conf</code>中添加一个虚拟主机配置<br />
+ <code>
+ &lt;VirtualHost *:80&gt;
+     DocumentRoot "/Library/WebServer/Documents/qiu"
+     ServerName qiu.localhost.com
+ &lt;/VirtualHost&gt;
+</code></li>
+  <li>重启Apache服务器<br />
+ <code>
+ sudo apachectl restart
+</code></li>
+  <li>浏览器访问<code>http://qiu.localhost.com/</code>看到php版本信息表示成功</li>
+</ol>
+
+<p>以上例子为本机环境, 线上环境将域名解析到主机ip即可</p>
+
+    </div>
+
+    <!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="/tools/2016/05/08/apache-httpd-server" data-title="Apache服务器" data-url="http://qiudeqing.com/tools/2016/05/08/apache-httpd-server.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qiudeqing"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
 
     
-    <div class="category">
-      <h2>类别</h2>
-      <ol class="category-list">
-        <li><a href="/article.html">全部类别</a></li>
-        
-        <li><a href="/html5/index.html">html5</a></li>
-        
-        <li><a href="/mobile_web/index.html">mobile_web</a></li>
-        
-        <li><a href="/tools/index.html">tools</a></li>
-        
-        <li><a href="/nodejs/index.html">nodejs</a></li>
-        
-        <li><a href="/css3/index.html">css3</a></li>
-        
-        <li><a href="/javascript/index.html">javascript</a></li>
-        
-        <li><a href="/animation/index.html">animation</a></li>
-        
-        <li><a href="/performance/index.html">performance</a></li>
-        
-        <li><a href="/java_web/index.html">java_web</a></li>
-        
-        <li><a href="/phaser/index.html">phaser</a></li>
-        
-        <li><a href="/php/index.html">php</a></li>
-        
-        <li><a href="/notes/index.html">notes</a></li>
-        
-        <li><a href="/android/index.html">android</a></li>
-        
-        <li><a href="/general/index.html">general</a></li>
-        
-      </ol>
-    </div>
-
-
-
-    <div class="article">
-      <h2>文章</h2>
-      <ol class="article-list">
-        
-        <li><a href="/mobile_web/2016/05/21/mobile-browser-click-300ms-delay.html">无线端浏览器click事件300ms延迟</a></li>
-        
-        <li><a href="/mobile_web/2016/05/16/learning-mobile-web.html">无线端web开发学习</a></li>
-        
-        <li><a href="/mobile_web/2015/11/04/mobile-web-debug.html">无线web页面开发调试</a></li>
-        
-        <li><a href="/mobile_web/2015/06/17/resources.html">移动端学习资料</a></li>
-        
-        <li><a href="/mobile_web/2015/05/22/responsive-toggle-menu.html">响应式切换菜单</a></li>
-        
-      </ol>
-    </div>
-
-
-  </div>
-
-  <div class="sidebar">
-
-  </div>
-</div>
-
-
-
-  
 
 <footer>
   <ul class="page-nav">
@@ -157,6 +148,8 @@
     });
   }(window));
 </script>
+
+  </div>
 
 
 
