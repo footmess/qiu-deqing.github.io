@@ -115,7 +115,9 @@ title: 无线端浏览器click事件300ms延迟
 - [http://www.telerik.com/blogs/what-exactly-is.....-the-300ms-click-delay][1]
 - [https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away?hl=en][2]
 - [http://www.quirksmode.org/blog/archives/2014/04/suppressing_the.html][15]
+- [https://webkit.org/blog/5610/more-responsive-tapping-on-ios/][16]
 
+[16]: https://webkit.org/blog/5610/more-responsive-tapping-on-ios/
 [15]: http://www.quirksmode.org/blog/archives/2014/04/suppressing_the.html
 [14]: http://thx.github.io/mobile/300ms-click-delay
 [13]: https://github.com/ftlabs/fastclick
