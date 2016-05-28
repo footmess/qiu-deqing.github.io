@@ -31,6 +31,7 @@ title: 无线端浏览器click事件300ms延迟
 - 取消禁止缩放页面的延迟
     双击是为了缩放页面, 在不能缩放的页面禁止延迟也就理所当然, 安卓版的Chrome, Opera, BlackBerry和Firefox在设置以下meta标签的页面中取消了延迟, [webkit在2015-10-14也实现了支持](https://bugs.webkit.org/show_bug.cgi?id=149968)
 
+
     ```
     <meta name="viewport" content="user-scalable=no">
     或者
@@ -46,6 +47,7 @@ title: 无线端浏览器click事件300ms延迟
 
 - 指针事件(Pointer Event)
     指针事件使用一套事件模型统一鼠标, 触屏, 笔触等所有输入事件, 其中引入的CSS属性`touch-action`将如何响应用户操作的决定权交给页面设计者, 具体兼容性可以查询[caniuse touch-action](http://caniuse.com/#search=touch-action), [webkit在2015-10-22实现了支持](http://trac.webkit.org/changeset/191452)
+
     ```
     html {
         -ms-touch-action: manipulation;
@@ -86,17 +88,22 @@ title: 无线端浏览器click事件300ms延迟
 结合前面的讨论个人采用以下方案
 
 - 设置viewport
+
     ```
     <meta name="viewport" content="width=device-width, initial-scale=1">
     ```
+
 - 设置`touch-action`
+
     ```
     html {
         -ms-touch-action: manipulation;
             touch-action: manipulation;
     }
     ```
+
 - 引入FastClick
+
     ```
     if ('addEventListener' in document) {
         document.addEventListener('DOMContentLoaded', function() {
