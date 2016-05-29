@@ -4,6 +4,11 @@ title: 好用的JavaScript和css库, 组件, 插件
 
 带**√**表示使用过
 
+# [google/material-design-lite][12]: [google material design][13]的组件实现
+
+[13]: http://www.google.com/design/spec/material-design/introduction.html
+[12]: https://github.com/google/material-design-lite
+
 # [tabulouse-js][11]: jQuery插件, tab功能
 
 [11]: https://github.com/aarondo/tabulous.js
@@ -51,6 +56,9 @@ title: 好用的JavaScript和css库, 组件, 插件
 [6]: https://github.com/daneden/animate.css
 
 # √[slick.js][5]: jQuery插件, 轮播组件
+
+- 支持无线端touch切换
+- 支持事件回调
 
 [5]: https://github.com/kenwheeler/slick
 
