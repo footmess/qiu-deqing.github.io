@@ -72,11 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 ```
 
-# 覆盖浏览器默认状态样式
-
-当你要为不同状态设置样式时, 应该覆盖掉浏览器默认样式
-
-- 覆盖链接敲击高亮样式
+# 覆盖链接敲击高亮样式
     Safari和Chrome都给链接敲击设置了颜色高亮, 敲击链接时会显示一个高亮颜色, 然后高亮消失. 如果为链接的`:hover`状态设置了不同背景颜色, 就会先看到高亮颜色, 高亮消失之后才看到设置的背景颜色. 通过[-webkit-tap-hilight-color][1]属性可以进行覆盖:
     ```
     a {
@@ -89,7 +85,16 @@ document.addEventListener('DOMContentLoaded', function () {
     <meta name="msapplication-tap-highlight" content="no">
     ```
 
+# 禁止用户选择文本
 
+当用户长按屏幕时一些浏览器启动文本选择功能. 通过`user-select`可以禁止用户选择文本. **如果元素包含了电话号码, 电子邮件等用户很可能需要复制的信息时, 不应该禁止用户选择文本**
+
+```
+-webkit-user-select: none;
+   -moz-user-select: none;
+    -ms-user-select: none;
+        user-select: none;
+```
 
 在PC上经常使用`:hover`为用户鼠标滑过提供反馈, 无线浏览器没有hover
 状态, 触目元素时需要提供反馈可以使用`:active`状态.
