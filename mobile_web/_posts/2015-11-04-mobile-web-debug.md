@@ -6,6 +6,15 @@ title: 无线web页面开发调试
 
 WEb Inspector REmote使用[webkit web inspector项目][2]提供的代码在电脑端浏览器为无线端页面提供开发工具. UC, 手淘, 微信页面调试都能够支持.
 
+1. `npm install -g weinre`安装
+2. `ipconfig getifaddr en0`获取局域网ip如:`30.9.161.113`
+3. `weinre --boundHost 30.9.161.113`启动监听
+4. 访问`http://30.9.161.113:8080`查看监控信息
+5. 在页面嵌入监听脚本`http://30.9.161.113:8080/target/target-script-min.js#anonymous`
+6. 手机浏览器访问开发页面.刷新监控页面可以查看到链接页面.点击进去就可以调试了
+
+
+
 [3]: https://people.apache.org/~pmuellr/weinre/docs/1.x/1.5.0/
 [2]: http://trac.webkit.org/wiki/WebInspector
 
