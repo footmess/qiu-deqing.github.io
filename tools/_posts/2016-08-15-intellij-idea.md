@@ -2,7 +2,34 @@
 title: IntelliJ IDEA基础
 ---
 
+# 快捷键
+
+- `command + d`: 复制一行
+- `command + F4`: 关闭当前tab
+- `command + /`: 注释
+
+
+# 设置快捷键
+
+菜单栏选择:**Intellij IDEA -> Preference -> Keymap**右侧选择功能, 然后自定义快捷键
+
+- `command + option + 2`: 编辑器分屏为竖直方向
+- `command + option + shift + 2`: 编辑器分屏为水平方向
+
+# 破解
+
+注册时选择“License server”输入“http://idea.lanyus.com/”点击“OK”，不用打补丁直接激活
+备用激活服务器地址：
+http://0.idea.lanyus.com
+http://1.idea.lanyus.com
+http://2.idea.lanyus.com
+
 # 设置maven
+
+# maven创建的java文件夹不识别为source 目录
+
+导航栏选中文件夹, 右键**Mark Directory As -> Sources Root**
+
 
 # 创建maven管理的web app
 
