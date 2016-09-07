@@ -14,6 +14,28 @@ title: spring mvc
          id="WebApp_ID" version="3.0">
 ```
 
+# form提交数据到后台是乱码
+
+`web.xml`配置,添加过滤器
+
+```
+    <filter>
+        <filter-name>CharacterEncoding</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>CharacterEncoding</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+```
 
 
 

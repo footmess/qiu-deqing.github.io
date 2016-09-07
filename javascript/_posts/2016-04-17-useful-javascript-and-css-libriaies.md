@@ -4,6 +4,9 @@ title: 好用的JavaScript和css库, 组件, 插件
 
 带**√**表示使用过
 
+# [bootstrap-table][14]: bootstrap样式的table插件
+
+[14]: http://bootstrap-table.wenzhixin.net.cn/documentation/
 # [google/material-design-lite][12]: [google material design][13]的组件实现
 
 [13]: http://www.google.com/design/spec/material-design/introduction.html
