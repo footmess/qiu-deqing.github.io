@@ -40,14 +40,6 @@ title: spring mvc
 
 
 
-# web app使用maven集成spring mvc
-
-1. `pom.xml`添加依赖
-
-```
-
-```
-
 # 参考资料
 
 - [入门教程: 原理, demo简洁清晰][1]

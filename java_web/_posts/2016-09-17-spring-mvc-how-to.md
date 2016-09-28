@@ -53,9 +53,9 @@ title: spring mvc 入门
                     <groupId>javax.servlet</groupId>
                     <artifactId>javax.servlet-api</artifactId>
                     <version>${servlet.version}</version>
+                    <scope>provided</scope>
                 </dependency>
                 <!-- servlet end -->
-
 
             </dependencies>
             <build>
@@ -163,6 +163,8 @@ title: spring mvc 入门
          </web-app>
 
 6. 重启服务器, 浏览器访问`http://localhost:8080/demo/hello`, 页面显示**你好Spring MVC**表示成功.
+
+
 
 # 配置log4j为日志
 
@@ -276,6 +278,40 @@ title: spring mvc 入门
     }
 
 # restful接口
+
+    package com.qiudeqing.controller.demo;
+
+    import org.apache.log4j.Logger;
+    import org.springframework.stereotype.Controller;
+    import org.springframework.ui.Model;
+    import org.springframework.web.bind.annotation.PathVariable;
+    import org.springframework.web.bind.annotation.RequestMapping;
+    import org.springframework.web.bind.annotation.RequestParam;
+
+    import javax.servlet.http.HttpServletRequest;
+    import javax.servlet.http.HttpServletResponse;
+
+    /**
+     * Created by qiudeqing on 16/9/17.
+     */
+    @Controller
+    public class HelloWorldController {
+
+        private static  final Logger logger = Logger.getLogger(HelloWorldController.class);
+
+        @RequestMapping("/demo/book/{id}/{title}")
+        public String book(Model model,
+                           @PathVariable(value = "id") String id,
+                           @PathVariable(value = "title") String title) {
+            model.addAttribute("id", id);
+            model.addAttribute("title", title);
+
+            return "demo/book";
+        }
+
+    }
+
+# 返回json
 
 
 
