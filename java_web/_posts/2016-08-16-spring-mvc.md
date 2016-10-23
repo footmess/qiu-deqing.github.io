@@ -39,7 +39,6 @@ title: spring mvc
 
 
 
-
 # 参考资料
 
 - [入门教程: 原理, demo简洁清晰][1]

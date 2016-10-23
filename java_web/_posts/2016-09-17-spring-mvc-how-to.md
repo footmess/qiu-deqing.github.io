@@ -13,6 +13,18 @@ title: spring mvc 入门
 - spring 4.3.2.RELEASE
 - intellij idea 15
 
+# 添加jstl
+
+pom.xml
+
+    <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>jstl</artifactId>
+        <version>1.2</version>
+    </dependency>
+
+
 
 # 在Intellij Idea创建基于maven的 web app
 

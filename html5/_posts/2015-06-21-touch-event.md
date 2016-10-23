@@ -177,7 +177,25 @@ document.addEventListener('touchend', function (event) {
 
 - [https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away?hl=en][8]
 
+## UC浏览器的问题
 
+UC等很多Android浏览器只触发一次`touchmove`, 解决方法是在`touchstart`中调用`preventDefault`解决..
+
+这样会取消掉后续的click事件, 造成click链接失效, click监听器不执行等. 可以在touchstart事件监听器检查元素.
+进行特殊检查
+
+经与UC的开发讨论，得出如下结果~~
+
+1. UC在内核不响应touchend事件的时候会补发一个touchcancel事件，开发者需要同时监听end和cancel事件，专门为UC做一下优化
+2. 在UC的move事件并不是连续触发多次，而是只触发一次。根据x,y的值可以来判断改变距离。
+
+参考
+
+- [touchmove事件只触发一次的问题][12]
+- [UC浏览器对于HTML5Touch事件的支持,其实是错的....][13]
+
+[13]: http://bbs.uc.cn/thread-4947182-1-1.html
+[12]: https://www.web-tinker.com/article/20364.html
 [11]: http://www.html5rocks.com/en/mobile/touch/
 [10]: http://qiudeqing.com/demo/html5/touch.html#d2
 [9]: http://qiudeqing.com/demo/html5/touch.html
