@@ -326,6 +326,29 @@ pom.xml
 # 返回json
 
 
+# The request sent by the client was syntactically incorrect
+
+@PathVariable指定的参数名必须和url模板一致, 否则会报错
+
+# 配置静态资源访问
+
+    @Configuration
+    @EnableWebMvc
+    @ComponentScan(basePackageClasses = {HelloWorldController.class})
+    public class WebConfiguration extends WebMvcConfigurerAdapter {
+
+        /**
+         * configure ResourceHandlers to serve static resources like css js
+         * 所有/static/开头的请求都用webapp下/static/目录下的资源响应
+         */
+        @Override
+        public void addResourceHandlers(ResourceHandlerRegistry registry) {
+            registry.addResourceHandler("/static/**")
+                    .addResourceLocations("/static");
+        }
+    }
+
+
 
 
 [2]: http://o7planning.org/en/10129/spring-mvc-tutorial-for-beginners

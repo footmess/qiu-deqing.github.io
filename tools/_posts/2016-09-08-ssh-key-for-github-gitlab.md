@@ -22,7 +22,7 @@ github, gitlab提交需要身份验证, 使用ssh key可以避免每次都输入
 
     ssh-keygen -t rsa -C "youremail@yourcompany.com"
 
-因为系统已经有一个默认key了. 系统会让你输入key保存文件名, 可以输入`~/.ssh/id_rsa_gitlab`, 然后一直回车.
+因为系统已经有一个默认key了. 系统会让你输入key保存文件名, 可以输入`/Users/qiudeqing/.ssh/id_rsa_github.pub`, 然后一直回车.
 
 系统会在指定路径生成`id_rsa_gitlab`, `id_rsa_gitlab.pub`两个文件, 复制公钥`id_rsa_gitlab.pub`内容到github/gitlab设置ssh key
 

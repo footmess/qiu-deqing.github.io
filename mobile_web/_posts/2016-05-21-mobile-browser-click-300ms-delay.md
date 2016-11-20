@@ -112,10 +112,23 @@ title: 无线端浏览器click事件300ms延迟
     }
     ```
 
+# 2016-11-14更新
+
+
+苹果在2016-3-21发布了iOS9.3, 其中正式[移除了300ms延迟][1], 加上[chrome等浏览器消除300ms延迟][2], 只需要设置`viewport`和`touch-action`就可以直接用click事件了
+
+
+
 # 参考资料
+
 
 - [https://webkit.org/blog/5610/more-responsive-tapping-on-ios/]()
 - [http://www.telerik.com/blogs/what-exactly-is.....-the-300ms-click-delay]()
-- [https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away?hl=en]()
+- [https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away][2]
 - [http://www.quirksmode.org/blog/archives/2014/04/suppressing_the.html]()
 - https://adactio.com/journal/10019
+
+
+
+[2]: https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away
+[1]: http://www.mobilexweb.com/blog/safari-on-ios-9-3-picture-shrink-fit-iphone-se
