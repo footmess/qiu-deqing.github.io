@@ -7,6 +7,7 @@ title: IntelliJ IDEA基础
 - `command + d`: 复制一行
 - `command + F4`: 关闭当前tab
 - `command + /`: 注释
+- `command + shift + t`: 提示自动生成单元测试
 
 
 # 设置快捷键
@@ -66,3 +67,7 @@ http://2.idea.lanyus.com
 2. 左侧选择**Maven -> Runner**右侧**VM Options**填写: `-DarchetypeCatalog=internal`
 
 这样设置以后新建项目从本地读取就快了
+
+
+100131201205002094
+1001342012002572
