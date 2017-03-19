@@ -32,6 +32,14 @@ github, gitlab提交需要身份验证, 使用ssh key可以避免每次都输入
     ssh-add ~/.ssh/id_rsa_gitlab
 
 
+# 给远程服务器添加ssh公钥
+
+1. 在服务器`~/.ssh/authorized_keys`文件内添加用户的SSH公钥
+2. 执行`chomd 600 ~/.ssh/authorized_keys`
+
+现在用ssh连接就不需要密码了
+
+
 # 参考资料
 
 - [github/gitlab管理多个ssh key][1]

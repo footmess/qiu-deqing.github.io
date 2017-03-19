@@ -170,6 +170,10 @@ Sublime Text支持Perl Compatible Regular Expressions (PCRE) engine的正则表�
 Sublime Text将当前打开文件，文件夹当作一个project，将文件夹拖拽到side bar可添加到当前项目。菜单中选择**(Project -> Save Project As...)**可将相关文件文件夹关联信息保存，下次通过菜单**(Project -> open project)**可快速打开所有相关文件。
 
 
+## Emmet支持react
+
+[https://gist.github.com/wesbos/2bb4a6998635df97c748]()
+
 ## 使用[snippet][5]添加常用模板
 
 将常用的代码段保存起来, 使用tab在设置好的文本上扩展出来,能提高效率,设置方法:
