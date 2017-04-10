@@ -39,6 +39,11 @@ github, gitlab提交需要身份验证, 使用ssh key可以避免每次都输入
 
 现在用ssh连接就不需要密码了
 
+# ssh退出命令
+
+    exit
+
+    
 
 # 参考资料
 
