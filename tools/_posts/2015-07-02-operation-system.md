@@ -46,6 +46,17 @@ lsof -i :9001
 kill -9 <PID>
 ```
 
+# mac 添加环境变量
+
+```
+export PATH=/opt/apache-maven-3.5.0/bin:$PATH
+```
+
+mima: `a`
+
+
+
+
 ## mac程序全屏切换快捷键
 
 `Cmd + ctrl + f`
