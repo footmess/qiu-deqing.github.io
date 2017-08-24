@@ -47,7 +47,16 @@
     <div class="markdown-body">
       转载请注明出处: <a href="http://qiudeqing.com/tools/2015/10/17/vim.html">http://qiudeqing.com/tools/2015/10/17/vim.html</a>
 
-      <h2 id="section">文件操作</h2>
+      <h2 id="section">复制指定行到指定文件</h2>
+
+<p>命令模式下:</p>
+
+<pre><code>:100,200w filename
+</code></pre>
+
+<p>复制文件的100到200行到指定文件</p>
+
+<h2 id="section-1">文件操作</h2>
 
 <ul>
   <li><code>:q</code>退出, 如果未保存会提示保存</li>
@@ -55,7 +64,7 @@
   <li><code>:x</code>保存并退出</li>
 </ul>
 
-<h2 id="section-1">常用设置</h2>
+<h2 id="section-2">常用设置</h2>
 
 <h3 id="tab2">设置tab为2个空格</h3>
 
@@ -66,7 +75,7 @@
 :$retab!
 </code></pre>
 
-<h3 id="section-2">设置缩进为2个空格</h3>
+<h3 id="section-3">设置缩进为2个空格</h3>
 
 <p><code>vim ~/.vimrc</code>添加如下配置</p>
 
@@ -74,7 +83,7 @@
 :set autoindent     // 每行的缩进值与上一行相同
 </code></pre>
 
-<h3 id="section-3">显示行号</h3>
+<h3 id="section-4">显示行号</h3>
 
 <p><code>vim ~/.vimrc</code>添加配置</p>
 
@@ -82,25 +91,6 @@
 </code></pre>
 
     </div>
-
-    <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="/tools/2015/10/17/vim" data-title="vim常用操作" data-url="http://qiudeqing.com/tools/2015/10/17/vim.html"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"qiudeqing"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0]
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
 
     
 
@@ -165,5 +155,24 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
+<!-- end 百度统计 -->
+
+<!-- 百度链接自动提交 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<!-- end 百度链接自动提交 -->
+
 </body>
 </html>

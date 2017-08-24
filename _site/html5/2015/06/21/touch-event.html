@@ -242,27 +242,29 @@ document.addEventListener('touchend', function (event) {
   <li><a href="https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away?hl=en">https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away?hl=en</a></li>
 </ul>
 
+<h2 id="uc">UC浏览器的问题</h2>
+
+<p>UC等很多Android浏览器只触发一次<code>touchmove</code>, 解决方法是在<code>touchstart</code>中调用<code>preventDefault</code>解决..</p>
+
+<p>这样会取消掉后续的click事件, 造成click链接失效, click监听器不执行等. 可以在touchstart事件监听器检查元素.<br />
+进行特殊检查</p>
+
+<p>经与UC的开发讨论，得出如下结果~~</p>
+
+<ol>
+  <li>UC在内核不响应touchend事件的时候会补发一个touchcancel事件，开发者需要同时监听end和cancel事件，专门为UC做一下优化</li>
+  <li>在UC的move事件并不是连续触发多次，而是只触发一次。根据x,y的值可以来判断改变距离。</li>
+</ol>
+
+<p>参考</p>
+
+<ul>
+  <li><a href="https://www.web-tinker.com/article/20364.html">touchmove事件只触发一次的问题</a></li>
+  <li><a href="http://bbs.uc.cn/thread-4947182-1-1.html">UC浏览器对于HTML5Touch事件的支持,其实是错的….</a></li>
+</ul>
+
 
     </div>
-
-    <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="/html5/2015/06/21/touch-event" data-title="touch 事件" data-url="http://qiudeqing.com/html5/2015/06/21/touch-event.html"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"qiudeqing"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0]
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
 
     
 
@@ -327,5 +329,24 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
+<!-- end 百度统计 -->
+
+<!-- 百度链接自动提交 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<!-- end 百度链接自动提交 -->
+
 </body>
 </html>

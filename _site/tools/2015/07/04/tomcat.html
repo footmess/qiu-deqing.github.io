@@ -92,27 +92,32 @@
 
 <p>其中<code>docBase</code>为web app目录.</p>
 
+<h1 id="tomcat-1">Tomcat配置</h1>
+
+<h2 id="war404">重要：配置部署war包名称—不然永远404.。。。</h2>
+
+<pre><code>&lt;Host&gt;标签中
+&lt;Context path="/" docBase="chemgood.war" debug="0" privileged="true" reloadable="true"/&gt;
+</code></pre>
+
+<h2 id="tomcat-2">Tomcat编码问题</h2>
+
+<pre><code>&lt;Connector port="8080" protocol="HTTP/1.1"
+               connectionTimeout="20000"
+               redirectPort="8443"
+    URIEncoding="UTF-8" /&gt;
+
+</code></pre>
+
+<h2 id="tomcat-3">Tomcat启动慢</h2>
+
+<p>tomcat线上debug<br />
+编辑tomcat根目录下的bin/catalina.sh脚本，增加我们刚刚得到配置</p>
+
+<p><code>export CATALINA_OPTS="-agentlib:jdwp=transport=dt_socket,address=8000,suspend=n,server=y"</code></p>
+
 
     </div>
-
-    <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="/tools/2015/07/04/tomcat" data-title="tomcat基本使用" data-url="http://qiudeqing.com/tools/2015/07/04/tomcat.html"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"qiudeqing"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0]
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
 
     
 
@@ -177,5 +182,24 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
+<!-- end 百度统计 -->
+
+<!-- 百度链接自动提交 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<!-- end 百度链接自动提交 -->
+
 </body>
 </html>

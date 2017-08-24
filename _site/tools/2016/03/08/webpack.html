@@ -47,51 +47,117 @@
     <div class="markdown-body">
       转载请注明出处: <a href="http://qiudeqing.com/tools/2016/03/08/webpack.html">http://qiudeqing.com/tools/2016/03/08/webpack.html</a>
 
-      <h2 id="section">安装</h2>
+      <h1 id="section">安装</h1>
 
-<h3 id="section-1">1.全局:</h3>
+<h1 id="section-1">1.全局:</h1>
 
 <pre><code>npm install -g webpack
 </code></pre>
 
-<h3 id="section-2">2.项目:</h3>
+<h1 id="section-2">2.项目:</h1>
 
 <pre><code>npm install webpack --save-dev
 </code></pre>
 
-<h3 id="contentjs">3. 添加<code>content.js</code></h3>
+<h1 id="hello-world">hello world</h1>
 
-<pre><code>module.exports = 'It workd from content.js'
-</code></pre>
+<ol>
+  <li><code>mkdir webpack-base &amp;&amp; cd webpack-base</code></li>
+  <li><code>npm init -y</code></li>
+  <li><code>npm install --save-dev webpack</code></li>
+  <li><code>npm install --save lodash</code></li>
+  <li>
+    <p><code>mkdir app &amp;&amp; touch app/index.js</code></p>
 
-<h3 id="entryjs">4. 添加入口文件<code>entry.js</code></h3>
+    <p>```<br />
+ import _ from ‘lodash’</p>
 
-<pre><code>console.log(require('./content.js'))
-</code></pre>
+    <p>function component () {<br />
+ var element = document.createElement(‘div’)</p>
 
-<h3 id="section-3">5. 编译文件打包</h3>
+    <p>element.innerHTML = _.join([‘Hello’, ‘webpack’], ‘ ‘)</p>
 
-<pre><code>webpack ./entry.js bundle.js
-</code></pre>
+    <p>return element<br />
+ }</p>
 
-<h3 id="indexhtmlbundlejs">6. <code>index.html</code>引入<code>bundle.js</code></h3>
+    <p>document.body.appendChild(component())    <br />
+ ```</p>
+  </li>
+  <li>
+    <p><code>touch index.html</code></p>
 
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;script src="bundle.js"&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
+    <p>```</p>
+    <html>
+ <head>
+ <title>webpack 2 demo</title>
+ </head>
+ <body>
+ <script src="dist/bundle.js"></script>
+ </body>
+ </html>
+    <p>```</p>
+  </li>
+  <li>
+    <p><code>touch webpack.config.js</code></p>
 
-<h3 id="section-4">7. 查看结果</h3>
+    <p>```<br />
+ var path = require(‘path’)</p>
 
-<p>输出</p>
+    <p>module.exports = {<br />
+ entry: ‘./app/index.js’,<br />
+ output: {<br />
+     filename: ‘bundle.js’,<br />
+     path: path.resolve(__dirname, ‘dist’),<br />
+ }<br />
+ }<br />
+ ```</p>
+  </li>
+  <li>
+    <p><code>package.json</code>添加</p>
 
-<pre><code>It workd from content.js
+    <p><code>
+ "scripts": {
+     "build": "webpack"
+ },
+</code></p>
+  </li>
+  <li><code>npm run build</code></li>
+  <li>浏览器访问<code>index.html</code></li>
+</ol>
+
+<h1 id="section-3">名词解释</h1>
+
+<ul>
+  <li>Entry: webpack解析项目依赖的入口, 在配置文件中用<code>entry</code>字段设置</li>
+  <li>Output: 配置webpack如何输出项目文件</li>
+  <li>Loaders: webpack将每一个文件(.css, .html, .scss, .jpg)都看做一个模块, 但是webpack本身只认识JavaScript模块. 加载器将这些文件转化为可以加载的模块.<code>test</code>指定加载器处理的文件类型, <code>use</code>指定对应的加载器</li>
+  <li>Plugins: 对资源执行特定处理. 如<code>autoprefixer</code>自动处理css兼容性问题</li>
+</ul>
+
+<p>下面是一个基础的<code>webpack.config.js</code></p>
+
+<pre><code>const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
+const webpack = require('webpack'); //to access built-in plugins
+const path = require('path');
+
+const config = {
+  entry: './path/to/my/entry/file.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'my-first-webpack.bundle.js'
+  },
+  module: {
+    rules: [
+      {test: /\.(js|jsx)$/, use: 'babel-loader'}
+    ]
+  },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin(),
+    new HtmlWebpackPlugin({template: './src/index.html'})
+  ]
+};
+
+module.exports = config;
 </code></pre>
 
 <h1 id="loadercss">使用Loader加载css</h1>
@@ -128,7 +194,7 @@ require('!style!css!./style.css')
 <pre><code>require('./style.css')
 </code></pre>
 
-<h2 id="section-5">配置文件</h2>
+<h2 id="section-4">配置文件</h2>
 
 <p>将配置信息添加到<code>webpack.config.js</code>配置文件后, 每次只需要执行<code>webpack</code>即可完成打包任务</p>
 
@@ -145,7 +211,7 @@ require('!style!css!./style.css')
 <pre><code>webpack --progress --colors --watch
 </code></pre>
 
-<h2 id="section-6">服务器辅助开发</h2>
+<h2 id="section-5">服务器辅助开发</h2>
 
 <p>安装:</p>
 
@@ -166,26 +232,13 @@ require('!style!css!./style.css')
 
 <p>还是用watch吧</p>
 
+<h1 id="section-6">参考资料</h1>
+
+<ul>
+  <li><a href="https://scotch.io/tutorials/setup-a-react-environment-using-webpack-and-babel">webpack搭建react环境</a></li>
+</ul>
+
     </div>
-
-    <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="/tools/2016/03/08/webpack" data-title="webpack基础" data-url="http://qiudeqing.com/tools/2016/03/08/webpack.html"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"qiudeqing"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0]
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
 
     
 
@@ -250,5 +303,24 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
+<!-- end 百度统计 -->
+
+<!-- 百度链接自动提交 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<!-- end 百度链接自动提交 -->
+
 </body>
 </html>

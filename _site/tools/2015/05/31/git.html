@@ -47,9 +47,13 @@
     <div class="markdown-body">
       转载请注明出处: <a href="http://qiudeqing.com/tools/2015/05/31/git.html">http://qiudeqing.com/tools/2015/05/31/git.html</a>
 
-      <h1 id="git">git基础</h1>
+      <h1 id="ubuntu-16-git">ubuntu 16 安装git</h1>
 
-<p>记录常用操作</p>
+<pre><code>```
+sudo apt-get update
+sudo apt-get install git
+```
+</code></pre>
 
 <h2 id="section">添加远程仓库</h2>
 
@@ -63,7 +67,7 @@
 <pre><code>git checkout -b gh-pages origin/gh-pages
 </code></pre>
 
-<h2 id="git-1">git配置项目用户名和邮箱</h2>
+<h2 id="git">git配置项目用户名和邮箱</h2>
 
 <p>命令行进入到项目目录</p>
 
@@ -71,7 +75,7 @@
 git config user.name "xxx"
 </code></pre>
 
-<h2 id="git-2">git如何删除远程分支</h2>
+<h2 id="git-1">git如何删除远程分支</h2>
 
 <p><code>git push [远程名] :[分支名]</code>如，删除origin服务器上的issue3，使用如下命令：</p>
 
@@ -80,8 +84,19 @@ git config user.name "xxx"
 
 <h2 id="gittag">git删除tag</h2>
 
+<p>删除本地:</p>
+
 <pre><code>git tag -d &lt;tagName&gt;
 </code></pre>
+
+<p>删除远程:</p>
+
+<pre><code>git push origin --delete &lt;branchName&gt;
+</code></pre>
+
+<h2 id="section-2">回滚</h2>
+
+<p>http://www.jianshu.com/p/0b50e4a43cdf</p>
 
 <h2 id="macignore--dsstore">mac下如何设置全局ignore  .DS_Store文件</h2>
 
@@ -151,7 +166,7 @@ index f74223e..8fcf8e2 100644
 
 <h2 id="github">github基本操作</h2>
 
-<h3 id="section-2">如何引用仓库中的文件到项目中</h3>
+<h3 id="section-3">如何引用仓库中的文件到项目中</h3>
 
 <p>如需要引用最新的<a href="https://github.com/qiu-deqing/animate/blob/master/animate.js">https://github.com/qiu-deqing/animate/blob/master/animate.js</a>到项目中.需要执行两步修改:</p>
 
@@ -164,27 +179,14 @@ index f74223e..8fcf8e2 100644
 
 <p>同理: css文件也可以通过这样的方法来引用</p>
 
+<h1 id="section-4">参考资料</h1>
+
+<ul>
+  <li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-16-04">https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-16-04</a></li>
+</ul>
+
 
     </div>
-
-    <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="/tools/2015/05/31/git" data-title="git基础" data-url="http://qiudeqing.com/tools/2015/05/31/git.html"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"qiudeqing"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0]
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
 
     
 
@@ -249,5 +251,24 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
+<!-- end 百度统计 -->
+
+<!-- 百度链接自动提交 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<!-- end 百度链接自动提交 -->
+
 </body>
 </html>

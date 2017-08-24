@@ -51,6 +51,15 @@
 
 <p>WEb Inspector REmote使用<a href="http://trac.webkit.org/wiki/WebInspector">webkit web inspector项目</a>提供的代码在电脑端浏览器为无线端页面提供开发工具. UC, 手淘, 微信页面调试都能够支持.</p>
 
+<ol>
+  <li><code>npm install -g weinre</code>安装</li>
+  <li><code>ipconfig getifaddr en0</code>获取局域网ip如:<code>30.9.161.113</code></li>
+  <li><code>weinre --boundHost 30.9.161.113</code>启动监听</li>
+  <li>访问<code>http://30.9.161.113:8080</code>查看监控信息</li>
+  <li>在页面嵌入监听脚本<code>http://30.9.161.113:8080/target/target-script-min.js#anonymous</code></li>
+  <li>手机浏览器访问开发页面.刷新监控页面可以查看到链接页面.点击进去就可以调试了</li>
+</ol>
+
 <h2 id="androidchrome-devtool">android手机使用chrome devTool远程调试页面</h2>
 
 <p><a href="https://developers.google.com/web/tools/chrome-devtools/debug/remote-debugging/remote-debugging">原文连接</a></p>
@@ -75,25 +84,6 @@
 
 
     </div>
-
-    <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="/mobile_web/2015/11/04/mobile-web-debug" data-title="无线web页面开发调试" data-url="http://qiudeqing.com/mobile_web/2015/11/04/mobile-web-debug.html"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"qiudeqing"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0]
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
 
     
 
@@ -158,5 +148,24 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
+<!-- end 百度统计 -->
+
+<!-- 百度链接自动提交 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<!-- end 百度链接自动提交 -->
+
 </body>
 </html>

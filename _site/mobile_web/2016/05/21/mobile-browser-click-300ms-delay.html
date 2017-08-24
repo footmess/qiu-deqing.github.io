@@ -73,22 +73,22 @@
 
 <p><a href="http://output.jsbin.com/ixibol/6">点击本页面测试click延迟</a></p>
 
-<h1 id="section-1">解决方案</h1>
-
-<p>各大浏览器厂商尝试去掉300ms延迟, 但是这对于Safari来说几乎不可能, 因为在Safari上双击还有其他浏览器没有的滚动功能. 以下是一些浏览器提供的解决方案:</p>
+<h1 id="section-1">浏览器解决方案</h1>
 
 <ul>
   <li>
     <p>取消禁止缩放页面的延迟<br />
-  双击是为了缩放页面, 在不能缩放的页面禁止延迟也就理所当然, 安卓版的Chrome, Opera, BlackBerry和Firefox在设置以下meta标签的页面中取消了延迟</p>
+  双击是为了缩放页面, 在不能缩放的页面禁止延迟也就理所当然, 安卓版的Chrome, Opera, BlackBerry和Firefox在设置以下meta标签的页面中取消了延迟, <a href="https://bugs.webkit.org/show_bug.cgi?id=149968">webkit在2015-10-14也实现了支持</a></p>
 
     <p><code>
   &lt;meta name="viewport" content="user-scalable=no"&gt;
+  或者
+  &lt;meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0"&gt;
  </code></p>
   </li>
   <li>
     <p>取消为无线设计页面的延迟<br />
-  考虑到禁止缩放会带来可用性和可访问性的问题, Chrome 32开始<a href="https://codereview.chromium.org/18850005/">取消viewport设置为width小于等于device-width页面两次敲击缩放功能</a>, Opera, UC9也都实现了这一功能, Firefox还没有实现.</p>
+  考虑到禁止缩放会带来可用性和可访问性的问题, Chrome 32开始<a href="https://codereview.chromium.org/18850005/">取消viewport设置为width小于等于device-width页面两次敲击缩放功能</a>, Opera, UC9也都实现了这一功能, Firefox还没有实现.<a href="http://trac.webkit.org/changeset/191644">webkit在2015-10-27实现了支持</a></p>
 
     <p><code>
   &lt;meta name="viewport" content="width=device-width"&gt;
@@ -96,16 +96,7 @@
   </li>
   <li>
     <p>指针事件(Pointer Event)<br />
-  指针事件使用一套事件模型统一鼠标, 触屏, 笔触等所有输入事件, 其中引入的CSS属性<code>touch-action</code>将如何响应用户操作的决定权交给页面设计者, 这才是解决300ms延迟的最佳方案. 取值和含义如下:</p>
-
-    <ul>
-      <li>auto(默认): 有用户代理决定如何响应用户的行为(如滚动, 缩放等)</li>
-      <li>none: 对用户行为不触发任何反应</li>
-      <li>pan-x: 用户代理认为用户的触屏操作目的是水平滚动元素最近可水平滚动的祖先元素</li>
-      <li>pan-y: 用户代理认为用户的触屏操作目的是竖直滚动元素最近可竖直滚动的祖先元素</li>
-      <li>manipulation: 用户代理认为用户触屏操作只是为了滚动和连续缩放. <code>auto</code>所支持的其他行为都不在本规范范围内(规范还没有稳定, 使用时需要注意兼容性)</li>
-      <li>pan-left, pan-right, pan-up, pan-down: pan-x, pan-y的子集</li>
-    </ul>
+  指针事件使用一套事件模型统一鼠标, 触屏, 笔触等所有输入事件, 其中引入的CSS属性<code>touch-action</code>将如何响应用户操作的决定权交给页面设计者, 具体兼容性可以查询<a href="http://caniuse.com/#search=touch-action">caniuse touch-action</a>, <a href="http://trac.webkit.org/changeset/191452">webkit在2015-10-22实现了支持</a></p>
 
     <p><code>
   html {
@@ -114,6 +105,13 @@
   }
  </code></p>
   </li>
+</ul>
+
+<h1 id="section-2">页面实现者解决方案</h1>
+
+<p>从上面可以看出再过两年300ms延迟将成为历史, 在浏览器解决这个问题之前还是需要页面实现者提供兼容方案</p>
+
+<ul>
   <li>
     <p>监听touchend事件<br />
   <code>touchend</code>不会有延迟, 感觉替代<code>click</code>完全可以, 但是存在一些问题:</p>
@@ -146,61 +144,57 @@
   </li>
 </ul>
 
-<h1 id="section-2">总结</h1>
+<h1 id="section-3">总结</h1>
 
 <p>结合前面的讨论个人采用以下方案</p>
 
 <ul>
-  <li>设置viewport<br />
-  <code>
+  <li>
+    <p>设置viewport</p>
+
+    <p><code>
   &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
- </code></li>
-  <li>设置<code>touch-action</code><br />
-  <code>
+ </code></p>
+  </li>
+  <li>
+    <p>设置<code>touch-action</code></p>
+
+    <p><code>
   html {
       -ms-touch-action: manipulation;
           touch-action: manipulation;
   }
- </code></li>
-  <li>引入FastClick<br />
-  <code>
+ </code></p>
+  </li>
+  <li>
+    <p>引入FastClick</p>
+
+    <p><code>
   if ('addEventListener' in document) {
       document.addEventListener('DOMContentLoaded', function() {
           FastClick.attach(document.body);
       }, false);
   }
- </code></li>
+ </code></p>
+  </li>
 </ul>
 
-<h1 id="section-3">参考资料</h1>
+<h1 id="section-4">2016-11-14更新</h1>
+
+<p>苹果在2016-3-21发布了iOS9.3, 其中正式<a href="http://www.mobilexweb.com/blog/safari-on-ios-9-3-picture-shrink-fit-iphone-se">移除了300ms延迟</a>, 加上<a href="https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away">chrome等浏览器消除300ms延迟</a>, 只需要设置<code>viewport</code>和<code>touch-action</code>就可以直接用click事件了</p>
+
+<h1 id="section-5">参考资料</h1>
 
 <ul>
-  <li><a href="http://www.telerik.com/blogs/what-exactly-is.....-the-300ms-click-delay">http://www.telerik.com/blogs/what-exactly-is…..-the-300ms-click-delay</a></li>
-  <li><a href="https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away?hl=en">https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away?hl=en</a></li>
-  <li><a href="http://www.quirksmode.org/blog/archives/2014/04/suppressing_the.html">http://www.quirksmode.org/blog/archives/2014/04/suppressing_the.html</a></li>
+  <li><a href="">https://webkit.org/blog/5610/more-responsive-tapping-on-ios/</a></li>
+  <li><a href="">http://www.telerik.com/blogs/what-exactly-is…..-the-300ms-click-delay</a></li>
+  <li><a href="https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away">https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away</a></li>
+  <li><a href="">http://www.quirksmode.org/blog/archives/2014/04/suppressing_the.html</a></li>
+  <li>https://adactio.com/journal/10019</li>
 </ul>
 
 
     </div>
-
-    <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="/mobile_web/2016/05/21/mobile-browser-click-300ms-delay" data-title="无线端浏览器click事件300ms延迟" data-url="http://qiudeqing.com/mobile_web/2016/05/21/mobile-browser-click-300ms-delay.html"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"qiudeqing"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0]
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
 
     
 
@@ -265,5 +259,24 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
+<!-- end 百度统计 -->
+
+<!-- 百度链接自动提交 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<!-- end 百度链接自动提交 -->
+
 </body>
 </html>

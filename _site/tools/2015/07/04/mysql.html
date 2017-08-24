@@ -47,7 +47,59 @@
     <div class="markdown-body">
       转载请注明出处: <a href="http://qiudeqing.com/tools/2015/07/04/mysql.html">http://qiudeqing.com/tools/2015/07/04/mysql.html</a>
 
-      <h2 id="section">安装</h2>
+      <h1 id="ubuntu-16-mysql">ubuntu 16 安装MySQL</h1>
+
+<ol>
+  <li>安装MySQL</li>
+</ol>
+
+<pre><code>sudo apt-get update
+sudo apt-get install mysql-server
+</code></pre>
+
+<ol>
+  <li>配置MySQL</li>
+</ol>
+
+<p><code>
+  sudo mysql_secure_installation
+ </code></p>
+
+<ol>
+  <li>测试MySQL</li>
+</ol>
+
+<p>执行:</p>
+
+<p><code>
+  systemctl status mysql.service
+ </code></p>
+
+<p>结果大致如下:</p>
+
+<p>```<br />
+  ● mysql.service - MySQL Community Server<br />
+    Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: en<br />
+    Active: active (running) since Fri 2017-04-28 17:51:40 UTC; 10min ago<br />
+  Main PID: 19482 (mysqld)<br />
+    CGroup: /system.slice/mysql.service<br />
+            └─19482 /usr/sbin/mysqld</p>
+
+<p>Apr 28 17:51:39 vultr.guest systemd<a href="https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.25-osx10.9-x86_64.tar.gz">1</a>: Starting MySQL Community Server…<br />
+  Apr 28 17:51:40 vultr.guest systemd<a href="https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.25-osx10.9-x86_64.tar.gz">1</a>: Started MySQL Community Server.<br />
+  ```</p>
+
+<p>如果没有运行,执行<code>sudo systemctl mysql start</code>启动</p>
+
+<h1 id="section">创建新用户并授权</h1>
+
+<ol>
+  <li>登录到MySQL执行<code>CREATE USER '&lt;username&gt;'@'localhost' IDENTIFIED BY '&lt;password&gt;';</code></li>
+  <li>给用户授权<code>GRANT ALL PRIVILEGES ON &lt;database&gt; . &lt;table&gt; TO '&lt;username&gt;'@'localhost';</code>其中database和table可以是*,表示所有</li>
+  <li>生效:<code>FLUSH PRIVILEGES;</code></li>
+</ol>
+
+<h2 id="section-1">安装</h2>
 
 <p>下载<a href="https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.25-osx10.9-x86_64.tar.gz">MAC MySQL5.6安装文件包</a>解压得到<code>.dmg</code>文件</p>
 
@@ -88,27 +140,22 @@
 
 <p>NEW_PASSWORD_HERE为想要设置的密码, 比如: admin</p>
 
+<h1 id="mysql-2">修改mysql用户密码</h1>
+
+<pre><code>　　mysql -u root -p
+
+　　mysql&gt; SET PASSWORD FOR 'root'@'localhost' = PASSWORD('newpass');
+</code></pre>
+
+<h1 id="section-2">参考资料</h1>
+
+<ul>
+  <li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-16-04">https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-16-04</a></li>
+  <li><a href="https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql">https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql</a></li>
+</ul>
+
 
     </div>
-
-    <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="/tools/2015/07/04/mysql" data-title="MySQL基础操作" data-url="http://qiudeqing.com/tools/2015/07/04/mysql.html"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"qiudeqing"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0]
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
 
     
 
@@ -173,5 +220,24 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
+<!-- end 百度统计 -->
+
+<!-- 百度链接自动提交 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<!-- end 百度链接自动提交 -->
+
 </body>
 </html>
