@@ -2,6 +2,10 @@
 title: shadowsocks基础
 ---
 
+# 科学上网漫游指南
+
+https://lvii.gitbooks.io/outman/content/ss.mac.html
+
 
 # Ubuntu 16安装shadowsocks服务器
 

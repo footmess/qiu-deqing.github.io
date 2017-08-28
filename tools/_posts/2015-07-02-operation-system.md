@@ -183,3 +183,15 @@ defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder
 ```
 defaults write com.apple.finder AppleShowAllFiles -boolean false ; killall Finder
 ```
+
+
+# mac工具
+
+manico
+
+sizeup
+
+视频格式转换工具: 
+
+- wondershare video converter(收费)
+- handBrake(免费)
