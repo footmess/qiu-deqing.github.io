@@ -60,9 +60,26 @@ title: spring boot
 2. 通过命令行参数在应用启动时指定环境:`java -jar target/crm-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod`此时使用的配置文件是`application-prod.yml`
 
 
+# spring boot热部署
+
+1. maven添加依赖
+  ```
+  <!-- 热部署 -->
+  <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-devtools</artifactId>
+    <optional>true</optional>
+  </dependency>
+  ```
+2. 设置idea允许自动编译`Cmd + shift + a`,输入`make project automatically`回车,勾选`Make Project automatically`
+3. 允许idea在运行时编译`Cmd + shift + a`,输入`Registry`回车,勾选`compiler.automake.allow.when.running`
+
 # 参考资料
 
 - [Spring Boot 那些事][1]
+
+
+
 
 
 [1]: https://www.bysocket.com/?page_id=1639
