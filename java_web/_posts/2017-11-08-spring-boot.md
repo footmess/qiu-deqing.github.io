@@ -73,6 +73,18 @@ title: spring boot
   ```
 2. 设置idea允许自动编译`Cmd + shift + a`,输入`make project automatically`回车,勾选`Make Project automatically`
 3. 允许idea在运行时编译`Cmd + shift + a`,输入`Registry`回车,勾选`compiler.automake.allow.when.running`
+4. 通过idea启动或者`mvn spring-boot:run`启动服务器,修改代码后都会自动编译,热部署生效
+
+# 以jar发布
+
+1. `mvn install`编译打包为jar
+2. `java -jar xxx.jar`启动
+
+# 单元测试
+
+
+
+
 
 # 参考资料
 

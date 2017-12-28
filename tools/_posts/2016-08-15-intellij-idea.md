@@ -10,6 +10,8 @@ title: IntelliJ IDEA基础
 - `command + F4`: 关闭当前tab
 - `command + /`: 注释
 - `command + shift + t`: 提示自动生成单元测试
+- `alt + enter`: 提示导入类
+
 
 
 # 设置快捷键
