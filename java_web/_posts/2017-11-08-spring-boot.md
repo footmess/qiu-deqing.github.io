@@ -83,6 +83,46 @@ title: spring boot
 # 单元测试
 
 
+# 添加mybatis
+
+1. `pom.xml`添加 依赖
+
+    ```
+    <!-- Spring Boot Mybatis -->
+    <dependency>
+      <groupId>org.mybatis.spring.boot</groupId>
+      <artifactId>mybatis-spring-boot-starter</artifactId>
+      <version>${mybatis-spring-boot}</version>
+    </dependency>
+
+    <!-- MySQL 驱动 -->
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysql-connector}</version>
+    </dependency>
+    ```
+
+# mybatis generator插件
+
+1. `pom.xml`添加plugin
+
+    ```
+    <plugin>
+      <groupId>org.mybatis.generator</groupId>
+      <artifactId>mybatis-generator-maven-plugin</artifactId>
+              <version>1.3.2</version>
+      <configuration>
+        <verbose>true</verbose>
+        <overwrite>true</overwrite>
+      </configuration>
+    </plugin>
+    ```
+
+2. 在`resources`目录配置[generatorConfig.xml](https://gitee.com/qiudeqing/mall/blob/master/src/main/resources/generatorConfig.xml)
+3. maven运行插件即可根据数据库表结构生成Java bean, 基本的dao和mapper
+
+# mybatis-pageHelper
 
 
 
