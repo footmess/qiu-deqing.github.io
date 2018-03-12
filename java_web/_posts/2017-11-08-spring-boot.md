@@ -122,7 +122,28 @@ title: spring boot
 2. 在`resources`目录配置[generatorConfig.xml](https://gitee.com/qiudeqing/mall/blob/master/src/main/resources/generatorConfig.xml)
 3. maven运行插件即可根据数据库表结构生成Java bean, 基本的dao和mapper
 
-# mybatis-pageHelper
+
+# 异常处理
+
+1. 新建`src/main/resources/resources/error/404.html`,系统访问触发404错误会根据请求content-type返回对应内容.
+
+# FAQs
+
+## Cannot determine embedded database driver class for database type NONE
+
+原因：没有配置数据库信息
+
+```
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/imooc-demo?useUnicode=yes&characterEncoding=UTF-8&useSSL=false
+    username: xxx
+    password: xxx
+```
+
+## No Spring Session store is configured: set the 'spring.session.store-type' property
+
 
 
 
